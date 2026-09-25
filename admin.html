@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mariru Bazar - Panel administrador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <!-- Protección: redirige si no hay sesión de admin activa -->
+  <script>
+    if (sessionStorage.getItem("mariru_admin_logged") !== "true") {
+      window.location.replace("inicio.html");
+    }
+  </script>
+</head>
+<body class="admin-body">
+
+  <header class="navbar">
+    <span class="admin-brand">Mariru Bazar — Admin</span>
+    <button id="btnLogout" class="btn-logout" onclick="sessionStorage.removeItem('mariru_admin_logged'); window.location.href='inicio.html';">Cerrar sesión</button>
+  </header>
+
+
+  <main class="admin-main">
+
+    <div class="admin-notificaciones" id="adminNotificaciones"></div>
+
+    <section class="admin-seccion">
+      <div class="admin-seccion-header">
+        <h2>Stock</h2>
+        <button class="btn-admin-accion" id="btnMostrarFormAgregar">+ Agregar producto</button>
+      </div>
+
+      <form class="admin-form-agregar" id="formAgregar">
+
+  <div class="form-grupo">
+    <label>Nombre</label>
+    <input type="text" id="nuevoNombre" required>
+  </div>
+
+  <div class="form-grupo">
+    <label>Categoría</label>
+    <select id="nuevaCategoria" required>
+      <option value="ropa">Ropa</option>
+      <option value="accesorios">Accesorios</option>
+      <option value="maquillaje">Maquillaje</option>
+      <option value="perfumes">Perfumes</option>
+    </select>
+  </div>
+
+  <div class="form-grupo">
+    <label>Precio</label>
+    <input type="number" id="nuevoPrecio" min="0" required>
+  </div>
+
+  <div class="form-grupo">
+    <label>Stock</label>
+    <input type="number" id="nuevoStock" min="0" required>
+  </div>
+
+  <div class="form-grupo form-grupo-full">
+    <label>Descripción</label>
+    <textarea id="nuevaDescripcion" rows="2"></textarea>
+  </div>
+
+  <div class="form-grupo form-grupo-full">
+    <label>Tallas (opcional, separadas por coma — ej: CH, M, L, XL)</label>
+    <input type="text" id="nuevaTallas" placeholder="Déjalo vacío si el producto no usa tallas">
+  </div>
+
+  <div class="form-grupo form-grupo-full">
+    <label>Colores</label>
+    <div class="colores-picker">
+      <input type="color" id="colorPicker" value="#e58aa5">
+      <button type="button" id="btnAgregarColor" class="btn-mini">+ Agregar color</button>
+    </div>
+    <div class="colores-lista" id="coloresLista"></div>
+  </div>
+
+  <div class="form-grupo form-grupo-full">
+    <label>Imágenes (puedes agregar las que quieras)</label>
+    <input type="file" id="inputImagenes" accept="image/*" multiple hidden>
+    <button type="button" id="btnAgregarImagenes" class="btn-mini">+ Agregar imágenes</button>
+    <div class="media-preview" id="previewImagenes"></div>
+  </div>
+
+  <div class="form-grupo form-grupo-full">
+    <label>Videos (puedes agregar los que quieras)</label>
+    <input type="file" id="inputVideos" accept="video/*" multiple hidden>
+    <button type="button" id="btnAgregarVideos" class="btn-mini">+ Agregar videos</button>
+    <div class="media-preview" id="previewVideos"></div>
+  </div>
+
+  <button type="submit" class="btn-admin-accion form-grupo-full" id="btnGuardarProducto">Guardar producto</button>
+  <p class="form-status" id="formStatus"></p>
+
+</form>
+      <table class="admin-tabla">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tablaStockBody"></tbody>
+      </table>
+    </section>
+
+    <section class="admin-seccion">
+      <h2>Gráficas</h2>
+      <div class="admin-graficas">
+        <div class="admin-grafica-card"><canvas id="chartStock"></canvas></div>
+        <div class="admin-grafica-card"><canvas id="chartVentasCategoria"></canvas></div>
+        <div class="admin-grafica-card"><canvas id="chartTopVentas"></canvas></div>
+      </div>
+    </section>
+
+    <section class="admin-seccion">
+      <h2>Reporte</h2>
+      <p class="admin-reporte-texto">Descarga un CSV con el stock actual, unidades vendidas e ingresos por producto.</p>
+      <button class="btn-admin-accion" id="btnReporte">Generar reporte</button>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mariru Bazar - Panel administrador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body class="admin-body">
+
+  <header class="navbar">
+    <span class="admin-brand">Mariru Bazar — Admin</span>
+    <button id="btnLogout" class="btn-logout" onclick="sessionStorage.removeItem('mariru_admin_logged'); window.location.href='inicio.html';">Cerrar sesión</button>
+  </header>
+
+  <a href="javascript:history.back()" class="btn-volver-seccion" aria-label="Regresar a la página anterior">↩ Volver</a>
+
+
+  <main class="admin-main">
+
+    <section class="admin-hero">
+      <div>
+        <p class="admin-eyebrow">Panel de control</p>
+        <h1>Hola, administradora 👋</h1>
+        <p>Consulta el rendimiento de Mariru Bazar y gestiona tu inventario desde un solo lugar.</p>
+      </div>
+      <div>
+        <div class="admin-hero-date" id="adminFechaActual"></div>
+        <div class="admin-data-status" id="adminEstadoDatos">Conectando con la base de datos...</div>
+      </div>
+    </section>
+
+    <div class="admin-notificaciones" id="adminNotificaciones"></div>
+
+    <section class="admin-resumen" aria-label="Resumen de la tienda">
+      <article class="admin-metrica metrica-ventas">
+        <div class="metrica-icono">💰</div>
+        <div>
+          <span class="metrica-label">Ventas acumuladas</span>
+          <strong id="resumenVentas">$0</strong>
+          <small id="resumenVentasDetalle">Sin pedidos todavía</small>
+        </div>
+      </article>
+      <article class="admin-metrica metrica-pedidos">
+        <div class="metrica-icono">🛍️</div>
+        <div>
+          <span class="metrica-label">Pedidos recibidos</span>
+          <strong id="resumenPedidos">0</strong>
+          <small id="resumenPedidosDetalle">Consulta el historial</small>
+        </div>
+      </article>
+      <article class="admin-metrica metrica-stock">
+        <div class="metrica-icono">📦</div>
+        <div>
+          <span class="metrica-label">Unidades en stock</span>
+          <strong id="resumenStock">0</strong>
+          <small id="resumenStockDetalle">En todos los productos</small>
+        </div>
+      </article>
+      <article class="admin-metrica metrica-alertas">
+        <div class="metrica-icono">⚠️</div>
+        <div>
+          <span class="metrica-label">Alertas de inventario</span>
+          <strong id="resumenAlertas">0</strong>
+          <small id="resumenAlertasDetalle">Todo en orden</small>
+        </div>
+      </article>
+    </section>
+
+    <section class="admin-seccion">
+      <div class="admin-seccion-header">
+        <div>
+          <p class="admin-eyebrow">Catálogo</p>
+          <h2>Inventario de productos</h2>
+        </div>
+        <button class="btn-admin-accion" id="btnMostrarFormAgregar">+ Agregar producto</button>
+      </div>
+
+      <form class="admin-form-agregar" id="formAgregar">
+
+  <div class="form-grupo">
+    <label>Nombre</label>
+    <input type="text" id="nuevoNombre" required>
+  </div>
+
+  <div class="form-grupo">
+    <label>Categoría</label>
+    <select id="nuevaCategoria" required>
+      <option value="ropa">Ropa</option>
+      <option value="accesorios">Accesorios</option>
+      <option value="maquillaje">Maquillaje</option>
+      <option value="perfumes">Perfumes</option>
+    </select>
+  </div>
+
+  <div class="form-grupo">
+    <label>Precio</label>
+    <input type="number" id="nuevoPrecio" min="0" required>
+  </div>
+
+  <div class="form-grupo">
+    <label>Stock</label>
+    <input type="number" id="nuevoStock" min="0" required>
+  </div>
+
+  <div class="form-grupo form-grupo-full">
+    <label>Descripción</label>
+    <textarea id="nuevaDescripcion" rows="2"></textarea>
+  </div>
+
+  <div class="form-grupo form-grupo-full">
+    <label>Tallas (opcional, separadas por coma — ej: CH, M, L, XL)</label>
+    <input type="text" id="nuevaTallas" placeholder="Déjalo vacío si el producto no usa tallas">
+  </div>
+
+  <div class="form-grupo form-grupo-full">
+    <label>Colores</label>
+    <div class="colores-picker">
+      <input type="color" id="colorPicker" value="#e58aa5">
+      <button type="button" id="btnAgregarColor" class="btn-mini">+ Agregar color</button>
+    </div>
+    <div class="colores-lista" id="coloresLista"></div>
+  </div>
+
+  <div class="form-grupo form-grupo-full">
+    <label>Imágenes (puedes agregar las que quieras)</label>
+    <input type="file" id="inputImagenes" accept="image/*" multiple hidden>
+    <button type="button" id="btnAgregarImagenes" class="btn-mini">+ Agregar imágenes</button>
+    <div class="media-preview" id="previewImagenes"></div>
+  </div>
+
+  <div class="form-grupo form-grupo-full">
+    <label>Videos (puedes agregar los que quieras)</label>
+    <input type="file" id="inputVideos" accept="video/*" multiple hidden>
+    <button type="button" id="btnAgregarVideos" class="btn-mini">+ Agregar videos</button>
+    <div class="media-preview" id="previewVideos"></div>
+  </div>
+
+  <button type="submit" class="btn-admin-accion form-grupo-full" id="btnGuardarProducto">Guardar producto</button>
+  <p class="form-status" id="formStatus"></p>
+
+</form>
+      <div class="admin-tabla-wrap">
+        <table class="admin-tabla">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tablaStockBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="admin-seccion">
+      <div class="admin-section-title">
+        <div>
+          <p class="admin-eyebrow">Analítica</p>
+          <h2>Rendimiento de la tienda</h2>
+        </div>
+        <span class="admin-section-hint">Actualizado con tus pedidos registrados</span>
+      </div>
+      <div class="admin-graficas">
+        <div class="admin-grafica-card grafica-stock"><div class="grafica-heading"><h3>Stock por producto</h3><span>Unidades disponibles</span></div><canvas id="chartStock"></canvas></div>
+        <div class="admin-grafica-card"><div class="grafica-heading"><h3>Ventas por categoría</h3><span>Unidades vendidas</span></div><canvas id="chartVentasCategoria"></canvas></div>
+        <div class="admin-grafica-card grafica-top"><div class="grafica-heading"><h3>Productos más vendidos</h3><span>Top 5 del catálogo</span></div><canvas id="chartTopVentas"></canvas></div>
+      </div>
+    </section>
+
+    <section class="admin-seccion">
+      <div class="admin-reporte">
+        <div class="reporte-icono">📊</div>
+        <div>
+          <p class="admin-eyebrow">Exportación</p>
+          <h2>Reporte de ventas</h2>
+          <p class="admin-reporte-texto">Descarga un CSV con el stock actual, unidades vendidas e ingresos por producto.</p>
+        </div>
+      </div>
+      <button class="btn-admin-accion" id="btnReporte">Generar reporte</button>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/pages/admin.js"></script>
+  <script type="module" src="js/ui/background-parallax.js"></script>
+</body>
+</html>

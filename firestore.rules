@@ -1,0 +1,46 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function ownsUserDocument(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return signedIn() &&
+        get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data.admin == true;
+    }
+
+    match /productos/{productId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /pedidos/{orderId} {
+      allow create: if
+        (!signedIn() &&
+          request.resource.data.usuario == null) ||
+        (signedIn() &&
+          request.resource.data.usuario.uid == request.auth.uid);
+
+      allow read: if
+        (signedIn() && resource.data.usuario.uid == request.auth.uid) ||
+        isAdmin();
+
+      allow update, delete: if false;
+    }
+
+    match /usuarios/{userId} {
+      allow read: if ownsUserDocument(userId) || isAdmin();
+      allow create: if ownsUserDocument(userId)
+        && request.resource.data.admin == false;
+      allow update: if ownsUserDocument(userId)
+        && request.resource.data.admin == resource.data.admin;
+      allow delete: if false;
+    }
+  }
+}

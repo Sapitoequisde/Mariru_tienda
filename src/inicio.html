@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mariru Bazar - Inicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="page-inicio">
+
+  <header class="navbar">
+    <a href="inicio.html" class="nav-logo-link">
+      <img src="/assets/logo-completo-transparente.png" alt="Mariru" class="nav-logo">
+    </a>
+    <nav class="nav-links">
+      <a href="inicio.html" class="active">Inicio</a>
+      <a href="categorias.html">Mis pedidos</a>
+      <a href="sobre-mi.html">Contáctame</a>
+    </nav>
+    <div class="navbar-icons">
+      <a href="carrito.html" class="cart-icon" title="Carrito">🛒</a>
+      <button id="btnAbrirLogin" class="btn-nav-login" title="Iniciar sesión o crear perfil">👤 Mi cuenta</button>
+    </div>
+  </header>
+
+  <a href="javascript:history.back()" class="btn-volver-seccion" aria-label="Regresar a la página anterior">↩ Volver</a>
+
+  <!-- Modal de Login -->
+  <div id="loginOverlay" class="login-overlay" aria-hidden="true">
+    <div class="login-modal glass" role="dialog" aria-modal="true" aria-labelledby="loginModalTitulo">
+      <button id="btnCerrarLogin" class="login-close" aria-label="Cerrar">✕</button>
+      <img src="/assets/logo-completo-transparente.png" alt="Mariru" class="login-modal-logo">
+      <h2 id="loginModalTitulo" class="login-modal-titulo">Iniciar sesión</h2>
+      <form id="formLoginModal" class="login-modal-form" novalidate>
+        <div class="login-campo" hidden>
+          <label for="loginNombre">Nombre</label>
+          <input type="text" id="loginNombre" placeholder="Tu nombre" autocomplete="name">
+        </div>
+        <div class="login-campo">
+          <label for="loginUsuario">Correo electrónico o usuario</label>
+          <input type="text" id="loginUsuario" placeholder="tu@correo.com o Mariru05" autocomplete="username" required>
+        </div>
+        <div class="login-campo">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" placeholder="Tu contraseña" autocomplete="current-password" required>
+        </div>
+        <div class="login-campo" hidden>
+          <label for="loginConfirmarPass">Confirmar contraseña</label>
+          <input type="password" id="loginConfirmarPass" placeholder="Repite tu contraseña" autocomplete="new-password">
+        </div>
+        <p id="loginMensajeError" class="login-error" role="alert"></p>
+        <button type="submit" class="btn-login-modal">Entrar</button>
+        <button type="button" id="btnResetPassword" class="btn-reset-password">¿Olvidaste tu contraseña?</button>
+        <div class="login-separador"><span>o continúa con</span></div>
+        <button type="button" id="btnLoginGoogle" class="btn-login-google">
+          <span aria-hidden="true">G</span> Continuar con Google
+        </button>
+        <p class="login-cambiar-modo">
+          <span id="loginTextoModo">¿Aún no tienes una cuenta?</span>
+          <button type="button" id="btnCambiarModoLogin">Crear una cuenta nueva</button>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <main class="inicio-main">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Buscar...">
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <div class="chips-row" id="chipsInicio">
+      <button class="chip active" data-categoria="todos">Todos</button>
+      <button class="chip" data-categoria="ropa">Ropa</button>
+      <button class="chip" data-categoria="accesorios">Accesorios</button>
+      <button class="chip" data-categoria="maquillaje">Maquillaje</button>
+      <button class="chip" data-categoria="perfumes">Perfumes</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <!-- Las tarjetas de producto se insertan aquí con JavaScript -->
+    </div>
+  </main>
+
+<script type="module" src="js/pages/store.js"></script>
+<script type="module" src="js/ui/login-modal.js"></script>
+<script type="module" src="js/ui/background-parallax.js"></script>
+</body>
+</html>

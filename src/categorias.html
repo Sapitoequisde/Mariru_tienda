@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mariru Bazar - Mis pedidos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="page-pedidos">
+
+  <header class="navbar">
+    <a href="inicio.html" class="nav-logo-link">
+      <img src="/assets/logo-completo-transparente.png" alt="Mariru" class="nav-logo">
+    </a>
+    <nav class="nav-links">
+      <a href="inicio.html">Inicio</a>
+      <a href="categorias.html" class="active">Mis pedidos</a>
+      <a href="sobre-mi.html">Contáctame</a>
+    </nav>
+   <div class="navbar-icons">
+  <a href="carrito.html" class="cart-icon">🛒</a>
+  <a href="inicio.html?login=1" class="admin-icon" title="Iniciar sesión o crear perfil">👤</a>
+</div>
+  </header>
+
+  <a href="javascript:history.back()" class="btn-volver-seccion" aria-label="Regresar a la página anterior">↩ Volver</a>
+
+  <main class="pedidos-main">
+    <section class="pedidos-encabezado">
+      <span class="pedidos-kicker">Tu cuenta</span>
+      <h1 class="pedidos-titulo">Mis pedidos</h1>
+      <p class="pedidos-subtitulo">Consulta el estado y el resumen de tus compras.</p>
+    </section>
+    <section id="pedidosEstado" class="pedidos-estado" aria-live="polite">
+      <p>Cargando tus pedidos...</p>
+    </section>
+    <section id="pedidosLista" class="pedidos-lista" aria-live="polite"></section>
+  </main>
+
+  <script type="module" src="js/pages/orders.js"></script>
+  <script type="module" src="js/ui/background-parallax.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mariru Bazar - Carrito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="page-carrito">
+
+  <a href="javascript:history.back()" class="btn-volver">↩ volver</a>
+
+  <main class="carrito-main" id="carritoMain">
+    <h1 class="carrito-titulo">Tu carrito</h1>
+    <div class="carrito-lista" id="carritoLista">
+      <!-- Los productos del carrito se insertan aquí con JavaScript -->
+    </div>
+  </main>
+
+  <aside class="carrito-panel" id="carritoPanel">
+    <div class="carrito-info-botones">
+      <button type="button" class="carrito-info-btn">Conoce sobre el<br>proceso de compra</button>
+      <button type="button" class="carrito-info-btn">Ubicación<br>para recoger 📍</button>
+    </div>
+
+    <div class="carrito-aviso">
+      ⚠️ El costo de envío depende de la zona de entrega
+    </div>
+
+    <form id="checkoutForm" class="carrito-checkout" novalidate>
+      <h2>Confirmar pedido</h2>
+      <div class="checkout-grid">
+        <label>
+          Nombre completo
+          <input id="checkoutNombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
+        </label>
+        <label>
+          Teléfono
+          <input id="checkoutTelefono" name="telefono" type="tel" autocomplete="tel" placeholder="55 1234 5678" required>
+        </label>
+      </div>
+
+      <label>
+        Dirección o punto de recolección
+        <textarea id="checkoutDireccion" name="direccion" rows="3" placeholder="Av. ... / Colonia ... / Punto de recolección" required></textarea>
+      </label>
+
+      <div class="checkout-grid">
+        <label>
+          Método de pago
+          <select id="checkoutPago" name="pago">
+            <option value="Transferencia">Transferencia</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Pago contra entrega">Pago contra entrega</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        Notas
+        <textarea id="checkoutNotas" name="notas" rows="2" placeholder="Detalles extras, horarios, color favorito, etc."></textarea>
+      </label>
+    </form>
+
+    <div class="carrito-subtotal carrito-subtotal--split">
+      <span>Subtotal<br>sin envío</span>
+      <span id="carritoSubtotal">$0</span>
+    </div>
+    <div class="carrito-subtotal carrito-subtotal--split">
+      <span>Envío</span>
+      <span id="carritoEnvio">$80</span>
+    </div>
+
+    <button class="btn-quiero-productos" id="btnFinalizar" type="button">Quiero estos productos</button>
+  </aside>
+
+  <div class="carrito-vacio-centro" id="carritoVacioCentro">
+    <div class="carrito-vacio-card">
+      <p class="carrito-vacio-texto">Tu carrito está vacío</p>
+      <a href="inicio.html" class="btn-volver-tienda">Volver a la tienda</a>
+    </div>
+  </div>
+
+  <script type="module" src="js/pages/store.js"></script>
+  <script type="module" src="js/ui/background-parallax.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mariru Bazar - Producto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="page-producto">
+
+  <header class="navbar">
+    <a href="inicio.html" class="nav-logo-link">
+      <img src="/assets/logo-completo-transparente.png" alt="Mariru" class="nav-logo">
+    </a>
+    <nav class="nav-links">
+      <a href="inicio.html">Inicio</a>
+      <a href="categorias.html">Mis pedidos</a>
+      <a href="sobre-mi.html">Contáctame</a>
+    </nav>
+    <div class="navbar-icons">
+  <a href="carrito.html" class="cart-icon">🛒</a>
+  <a href="inicio.html?login=1" class="admin-icon" title="Iniciar sesión o crear perfil">👤</a>
+</div>
+  </header>
+
+  <a href="javascript:history.back()" class="btn-volver-seccion" aria-label="Regresar a la página anterior">↩ Volver</a>
+
+  <main class="producto-main">
+
+    <div class="producto-galeria">
+      <div class="producto-imagen-grande" id="productoImagen"></div>
+      <div class="producto-colores" id="productoColores"></div>
+    </div>
+
+    <div class="producto-info">
+      <div class="producto-meta-top">
+        <span id="stockBadge" class="stock-badge"></span>
+        <button class="product-favorite" id="btnFavorite" type="button" aria-label="Agregar a favoritos">♡</button>
+      </div>
+
+      <h1 id="productoNombre">Nombre del producto</h1>
+
+      <div class="producto-descripcion" id="productoDescripcion">
+        Descripción del producto
+      </div>
+
+      <div class="producto-tallas-wrap">
+        <div class="producto-tallas" id="productoTallas"></div>
+        <button class="btn-size-guide" id="btnGuiaTallas" type="button">Guía de tallas</button>
+      </div>
+
+      <div class="producto-acciones">
+        <span class="producto-precio" id="productoPrecio">$0</span>
+        <button class="btn-agregar" id="btnAgregar">Agregar al carrito</button>
+      </div>
+
+      <button class="btn-comprar" id="btnComprar">Comprar</button>
+    </div>
+
+  </main>
+
+  <div id="guiaTallasModal" class="modal-guide hidden" aria-hidden="true">
+    <div class="modal-guide-card">
+      <button type="button" class="modal-guide-close" id="btnCerrarGuiaTallas" aria-label="Cerrar guía de tallas">✕</button>
+      <h2>Guía de tallas</h2>
+      <ul>
+        <li><strong>CH:</strong> 86–90 cm de pecho</li>
+        <li><strong>M:</strong> 91–95 cm de pecho</li>
+        <li><strong>L:</strong> 96–100 cm de pecho</li>
+        <li><strong>XL:</strong> 101–106 cm de pecho</li>
+      </ul>
+      <p>Si te dudas, elige una talla más grande si prefieres un ajuste holgado.</p>
+    </div>
+  </div>
+
+  <script type="module" src="js/pages/store.js"></script>
+  <script type="module" src="js/ui/background-parallax.js"></script>
+  </body>
+</html>
