@@ -2,63 +2,166 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mariru Bazar - Producto</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Detalle de producto en Mariru Bazar.">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/producto.css">
+  <link rel="stylesheet" href="styles/tienda.css">
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
 </head>
-<body class="page-producto">
+<body class="page-producto tienda">
 
-  <header class="navbar">
-    <a href="inicio.html" class="nav-logo-link">
-      <img src="/assets/logo-completo-transparente.png" alt="Mariru" class="nav-logo">
-    </a>
-    <nav class="nav-links">
-      <a href="inicio.html">Inicio</a>
-      <a href="categorias.html">Mis pedidos</a>
-      <a href="sobre-mi.html">Contáctame</a>
-    </nav>
-    <div class="navbar-icons">
-  <a href="carrito.html" class="cart-icon">🛒</a>
-  <a href="inicio.html?login=1" class="admin-icon" title="Iniciar sesión o crear perfil">👤</a>
-</div>
-  </header>
+  <header class="barra" id="navbarGlobal"></header>
 
-  <a href="javascript:history.back()" class="btn-volver-seccion" aria-label="Regresar a la página anterior">↩ Volver</a>
-
-  <main class="producto-main">
-
-    <div class="producto-galeria">
-      <div class="producto-imagen-grande" id="productoImagen"></div>
-      <div class="producto-colores" id="productoColores"></div>
+  <!-- Modal de Login -->
+  <div id="loginOverlay" class="login-overlay" aria-hidden="true">
+    <div class="login-modal glass" role="dialog" aria-modal="true" aria-labelledby="loginModalTitulo">
+      <button id="btnCerrarLogin" class="login-close" aria-label="Cerrar">✕</button>
+      <img src="/assets/logo-mariru.webp" alt="Mariru Bazar" class="login-modal-logo login-modal-logo--center">
+      <h2 id="loginModalTitulo" class="login-modal-titulo">Iniciar sesión</h2>
+      <form id="formLoginModal" class="login-modal-form" novalidate autocomplete="on">
+        <div class="login-campo" hidden>
+          <label for="loginNombre">Nombre</label>
+          <input type="text" id="loginNombre" placeholder="Tu nombre" autocomplete="name" maxlength="80">
+        </div>
+        <div class="login-campo">
+          <label for="loginUsuario">Correo electrónico</label>
+          <input type="email" id="loginUsuario" placeholder="ejemplo@correo.com"
+                 autocomplete="email" autocapitalize="off" autocorrect="off"
+                 spellcheck="false" required maxlength="254">
+        </div>
+        <div class="login-campo">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" placeholder="Tu contraseña"
+                 autocomplete="current-password" required maxlength="256">
+        </div>
+        <div class="login-campo" hidden>
+          <label for="loginConfirmarPass">Confirmar contraseña</label>
+          <input type="password" id="loginConfirmarPass" placeholder="Repite tu contraseña"
+                 autocomplete="new-password" maxlength="256">
+        </div>
+        <div class="login-campo login-campo-terminos" hidden>
+          <label class="login-checkbox-label">
+            <input type="checkbox" id="loginAceptaTerminos">
+            Acepto los <a href="terminos.html" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a>
+            y el <a href="privacidad.html" target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a>
+          </label>
+        </div>
+        <p id="loginMensajeError" class="login-error" role="alert"></p>
+        <button type="submit" id="btnSubmitLogin" class="btn-login-modal">Entrar</button>
+        <button type="button" id="btnResetPassword" class="btn-reset-password">¿Olvidaste tu contraseña?</button>
+        <div class="login-separador"><span>o continúa con</span></div>
+        <button type="button" id="btnLoginGoogle" class="btn-login-google">
+          <span aria-hidden="true">G</span> Continuar con Google
+        </button>
+        <p class="login-cambiar-modo">
+          <span id="loginTextoModo">¿Aún no tienes una cuenta?</span>
+          <button type="button" id="btnCambiarModoLogin">Crear una cuenta nueva</button>
+        </p>
+      </form>
     </div>
+  </div>
 
-    <div class="producto-info">
-      <div class="producto-meta-top">
+  <!-- Ficha de producto en tres columnas: información (fija) · imagen ampliable · compra (fija) -->
+  <main class="ficha">
+
+    <aside class="ficha-info" aria-label="Información del producto">
+      <a class="ficha-volver" href="inicio.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg>
+        Volver al catálogo
+      </a>
+      <span id="productoRutaNombre" class="sr-only" aria-current="page">Producto</span>
+
+      <p class="producto-categoria" id="productoCategoria">Mariru Bazar</p>
+      <h1 class="ficha-titulo" id="productoNombre">Cargando producto…</h1>
+
+      <!-- Precio repetido solo en móvil, junto al nombre -->
+      <p class="ficha-precio-movil" aria-hidden="true"><span id="productoPrecioMovil">—</span> MXN</p>
+
+      <div class="ficha-descripcion producto-descripcion" id="productoDescripcion" tabindex="0" aria-label="Descripción completa del producto">
+        Estamos preparando los detalles de este hallazgo.
+      </div>
+
+      <div class="ficha-estado">
         <span id="stockBadge" class="stock-badge"></span>
         <button class="product-favorite" id="btnFavorite" type="button" aria-label="Agregar a favoritos">♡</button>
       </div>
+    </aside>
 
-      <h1 id="productoNombre">Nombre del producto</h1>
+    <section class="ficha-galeria" aria-label="Fotos y videos del producto">
+      <div class="ficha-medios" id="productoImagen"></div>
+    </section>
 
-      <div class="producto-descripcion" id="productoDescripcion">
-        Descripción del producto
+    <aside class="ficha-compra" aria-label="Comprar">
+      <div class="producto-precio-wrap">
+        <span class="producto-precio" id="productoPrecio">—</span>
+        <span class="producto-moneda">MXN</span>
       </div>
 
       <div class="producto-tallas-wrap">
+        <div class="ficha-tallas-encabezado">
+          <span>Talla</span>
+          <button class="btn-size-guide" id="btnGuiaTallas" type="button">Guía de tallas</button>
+        </div>
         <div class="producto-tallas" id="productoTallas"></div>
-        <button class="btn-size-guide" id="btnGuiaTallas" type="button">Guía de tallas</button>
       </div>
 
       <div class="producto-acciones">
-        <span class="producto-precio" id="productoPrecio">$0</span>
-        <button class="btn-agregar" id="btnAgregar">Agregar al carrito</button>
+        <button class="btn-agregar" id="btnAgregar" type="button" disabled>Agregar al carrito</button>
       </div>
+      <button class="btn-comprar" id="btnComprar" type="button" disabled>Comprar ahora</button>
+      <p class="producto-compra-nota">Coordinamos tu pedido por WhatsApp. Sin cobros en el sitio.</p>
 
-      <button class="btn-comprar" id="btnComprar">Comprar</button>
-    </div>
+      <div class="producto-beneficios">
+        <a href="envios.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span><strong>Entrega en Hermosillo</strong><small>Lugar y horario a convenir</small></span>
+        </a>
+        <a href="contacto.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 11.5a9 9 0 0 1-9 9 10 10 0 0 1-4-.8L3 21l1.3-5A9 9 0 1 1 21 11.5Z"/><path d="M8 11h8M8 7.5h5M8 14.5h5"/></svg>
+          <span><strong>¿Tienes alguna duda?</strong><small>Conversemos antes de elegir</small></span>
+        </a>
+      </div>
+    </aside>
 
   </main>
+
+  <section class="producto-complementos" aria-labelledby="productoDetallesTitulo">
+    <div class="producto-detalles">
+      <div class="producto-seccion-intro">
+        <h2 id="productoDetallesTitulo">Elige con tranquilidad</h2>
+        <p>Todo lo que necesitas saber antes de hacer tu pedido.</p>
+      </div>
+      <div class="producto-preguntas">
+        <details open>
+          <summary>¿Cómo recibo mi producto?</summary>
+          <p>Las entregas son únicamente en Hermosillo, Sonora. Acordamos contigo el lugar, el horario y cualquier costo de entrega por WhatsApp antes de confirmar tu pedido. <a href="envios.html">Ver detalles de entrega</a>.</p>
+        </details>
+        <details>
+          <summary>¿Cómo puedo pagar?</summary>
+          <p>Puedes coordinar el pago por transferencia, depósito o efectivo. Confirmamos disponibilidad, pago y entrega contigo; no se realizan cobros en esta página.</p>
+        </details>
+        <details>
+          <summary>¿Necesitas medidas o más información?</summary>
+          <p>Si tienes dudas sobre la talla, las medidas o los detalles de un artículo, <a href="contacto.html">contacta a Mariru</a> antes de hacer tu pedido. Te ayudamos a elegir.</p>
+        </details>
+      </div>
+    </div>
+
+    <section class="producto-relacionados" id="productoRelacionados" aria-labelledby="productoRelacionadosTitulo" hidden>
+      <div class="producto-seccion-heading">
+        <div>
+          <h2 id="productoRelacionadosTitulo">También te puede gustar</h2>
+        </div>
+        <a href="inicio.html">Ver todo el catálogo</a>
+      </div>
+      <div class="product-grid" id="productoRelacionadosGrid"></div>
+    </section>
+  </section>
 
   <div id="guiaTallasModal" class="modal-guide hidden" aria-hidden="true">
     <div class="modal-guide-card">
@@ -70,11 +173,14 @@
         <li><strong>L:</strong> 96–100 cm de pecho</li>
         <li><strong>XL:</strong> 101–106 cm de pecho</li>
       </ul>
-      <p>Si te dudas, elige una talla más grande si prefieres un ajuste holgado.</p>
+      <p>Si te dudas, elige una talla más grande para un ajuste holgado.</p>
     </div>
   </div>
 
+  <footer class="site-footer" id="siteFooter"></footer>
+
   <script type="module" src="js/pages/store.js"></script>
-  <script type="module" src="js/ui/background-parallax.js"></script>
-  </body>
+  <script type="module" src="js/ui/login-modal.js"></script>
+  <script type="module" src="js/ui/sakura-petals.js"></script>
+</body>
 </html>

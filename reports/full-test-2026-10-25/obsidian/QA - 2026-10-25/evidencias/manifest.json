@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-25",
+  "project": "C:\\Users\\uziel\\OneDrive\\Escritorio\\Mariru_tienda",
+  "files": {
+    "functions/index.js": "725e632db408a91ce486db8c143205f3a4581db30535062cbaa19e2910c7c387",
+    "firestore.rules": "ed4803a18ce0a0b13d4e7c1f20ab41a0eae397ee448c0507b022715ce5679ab7",
+    "storage.rules": "f9f9193c31084b69b7fa3aea8a9f2bb55fd73ef73aa788cd854230600f7a54d1",
+    "firebase.json": "9df6b7cc6345bbe23ddecb5610168658f58865775d47b14a5f554df3d155ca3e",
+    "vercel.json": "6fc8b7c3ef30d3805a2d9091a0589c78eb64fc949cc9faffcb73c103de73b1c7",
+    "vite.config.js": "557c24f1de7158277b3ea593c7ec40a1b920b2c6e73eee3b221f8684edb5f9ef",
+    "package.json": "6a6330d8a2666d41701acd34fa8fd0118b3ac93622eb1030ff578a881c97af22",
+    "package-lock.json": "a4b403ad84e2e5482a08e4ab73a64568cf8163e88b90d251f3a7ffc1d8db4b17",
+    "functions/package.json": "409a2523ecc43c3dbf3207122c23a8345acb1084f3c6970987dc7591c50f9bfe",
+    "functions/package-lock.json": "9579ce5c81ff4af4a8f9478fb77a36477a72f4c9c1456dd216e6b04748d43f25",
+    "src/js/pages/store.js": "9c2086a269bb869660244ba470601968ecf319de4993ff88dc3358d5ff25a89b",
+    "src/js/pages/admin.js": "a84e5bb88d05c91a591f9bd4ccba6bdc265959b2d0ad82db1c80f67086c18ce1",
+    "src/js/pages/account.js": "3a59974a9273b57e363080f71b259400d6cf88e6e915160114802cc0e8e21c5e",
+    "src/js/pages/orders.js": "f9b5a3f865e287d8990001641eda4446d8f0b00adf187246a5ef7b08e22482c2",
+    "src/js/ui/login-modal.js": "532cf6a4d2f742953de9537dc012785b6db30536c8d3b83c0e45db67bab171f6",
+    "src/js/services/firebase.js": "72405f8961c6cec3bed92063630db84e854d8573218ad4d8d17e0694547fabf1"
+  },
+  "applicationCodeChangedByTests": false,
+  "credentialsIncluded": false
+}

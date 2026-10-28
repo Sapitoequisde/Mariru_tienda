@@ -2,55 +2,56 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mariru Bazar - Inicio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Descubre ropa, accesorios, maquillaje y más de Mariru Bazar. Ventas únicamente en Hermosillo, Sonora; pedidos y pagos se coordinan por WhatsApp.">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/tienda.css">
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
 </head>
-<body class="page-inicio">
+<body class="page-inicio tienda">
 
-  <header class="navbar">
-    <a href="inicio.html" class="nav-logo-link">
-      <img src="/assets/logo-completo-transparente.png" alt="Mariru" class="nav-logo">
-    </a>
-    <nav class="nav-links">
-      <a href="inicio.html" class="active">Inicio</a>
-      <a href="categorias.html">Mis pedidos</a>
-      <a href="sobre-mi.html">Contáctame</a>
-    </nav>
-    <div class="navbar-icons">
-      <a href="carrito.html" class="cart-icon" title="Carrito">🛒</a>
-      <button id="btnAbrirLogin" class="btn-nav-login" title="Iniciar sesión o crear perfil">👤 Mi cuenta</button>
-    </div>
-  </header>
-
-  <a href="javascript:history.back()" class="btn-volver-seccion" aria-label="Regresar a la página anterior">↩ Volver</a>
+  <header class="barra" id="navbarGlobal"></header>
 
   <!-- Modal de Login -->
   <div id="loginOverlay" class="login-overlay" aria-hidden="true">
     <div class="login-modal glass" role="dialog" aria-modal="true" aria-labelledby="loginModalTitulo">
       <button id="btnCerrarLogin" class="login-close" aria-label="Cerrar">✕</button>
-      <img src="/assets/logo-completo-transparente.png" alt="Mariru" class="login-modal-logo">
+      <img src="/assets/logo-mariru.webp" alt="Mariru Bazar" class="login-modal-logo login-modal-logo--center">
       <h2 id="loginModalTitulo" class="login-modal-titulo">Iniciar sesión</h2>
-      <form id="formLoginModal" class="login-modal-form" novalidate>
+      <form id="formLoginModal" class="login-modal-form" novalidate autocomplete="on">
         <div class="login-campo" hidden>
           <label for="loginNombre">Nombre</label>
-          <input type="text" id="loginNombre" placeholder="Tu nombre" autocomplete="name">
+          <input type="text" id="loginNombre" placeholder="Tu nombre" autocomplete="name" autocapitalize="words" maxlength="80">
         </div>
         <div class="login-campo">
-          <label for="loginUsuario">Correo electrónico o usuario</label>
-          <input type="text" id="loginUsuario" placeholder="tu@correo.com o Mariru05" autocomplete="username" required>
+          <label for="loginUsuario">Correo electrónico</label>
+          <input type="email" id="loginUsuario" placeholder="ejemplo@correo.com"
+                 autocomplete="email" autocapitalize="off" autocorrect="off"
+                 spellcheck="false" required maxlength="254">
         </div>
         <div class="login-campo">
           <label for="loginPass">Contraseña</label>
-          <input type="password" id="loginPass" placeholder="Tu contraseña" autocomplete="current-password" required>
+          <input type="password" id="loginPass" placeholder="Tu contraseña"
+                 autocomplete="current-password" required maxlength="256">
         </div>
         <div class="login-campo" hidden>
           <label for="loginConfirmarPass">Confirmar contraseña</label>
-          <input type="password" id="loginConfirmarPass" placeholder="Repite tu contraseña" autocomplete="new-password">
+          <input type="password" id="loginConfirmarPass" placeholder="Repite tu contraseña"
+                 autocomplete="new-password" maxlength="256">
+        </div>
+        <div class="login-campo login-campo-terminos" hidden>
+          <label class="login-checkbox-label">
+            <input type="checkbox" id="loginAceptaTerminos">
+            Acepto los <a href="terminos.html" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a>
+            y el <a href="privacidad.html" target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a>
+          </label>
         </div>
         <p id="loginMensajeError" class="login-error" role="alert"></p>
-        <button type="submit" class="btn-login-modal">Entrar</button>
+        <button type="submit" id="btnSubmitLogin" class="btn-login-modal">Entrar</button>
         <button type="button" id="btnResetPassword" class="btn-reset-password">¿Olvidaste tu contraseña?</button>
         <div class="login-separador"><span>o continúa con</span></div>
         <button type="button" id="btnLoginGoogle" class="btn-login-google">
@@ -65,26 +66,121 @@
   </div>
 
   <main class="inicio-main">
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Buscar...">
-      <span class="search-icon">🔍</span>
+
+    <!-- Acceso a filtros disponible en escritorio y móvil -->
+    <div class="inicio-mobile-bar">
+      <button type="button" id="btnToggleFiltros" class="btn-toggle-filtros" aria-expanded="false" aria-controls="panelFiltros">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        Filtros
+        <span class="filtros-badge" id="filtrosBadge" hidden>0</span>
+      </button>
     </div>
 
-    <div class="chips-row" id="chipsInicio">
-      <button class="chip active" data-categoria="todos">Todos</button>
-      <button class="chip" data-categoria="ropa">Ropa</button>
-      <button class="chip" data-categoria="accesorios">Accesorios</button>
-      <button class="chip" data-categoria="maquillaje">Maquillaje</button>
-      <button class="chip" data-categoria="perfumes">Perfumes</button>
-    </div>
+    <!-- Fondo para cerrar el panel de filtros -->
+    <div class="filtros-overlay" id="filtrosOverlay" aria-hidden="true"></div>
 
-    <div class="product-grid" id="productGrid">
-      <!-- Las tarjetas de producto se insertan aquí con JavaScript -->
-    </div>
+    <div class="inicio-layout">
+
+      <!-- Panel de filtros lateral -->
+      <aside class="filtros-panel" id="panelFiltros" role="dialog" aria-modal="true" aria-label="Filtros de productos" aria-hidden="true" inert>
+
+        <!-- Header -->
+        <div class="filtros-header">
+          <div class="filtros-titulo-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filtros-titulo-icon" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            <h2 class="filtros-titulo">Filtrar</h2>
+          </div>
+          <button type="button" id="btnLimpiarFiltros" class="btn-limpiar-filtros">
+            Limpiar
+            <span class="filtros-badge-header" id="filtrosBadgeHeader" hidden>0</span>
+          </button>
+        </div>
+
+        <!-- Cerrar filtros -->
+        <button type="button" id="btnCerrarFiltros" class="btn-cerrar-filtros" aria-label="Cerrar filtros">✕</button>
+
+        <!-- Categoría: botones de selección única (se llenan con JS) -->
+        <fieldset class="filtro-grupo" id="filtroCategoria">
+          <legend class="filtro-label">Categoría</legend>
+          <div class="filtro-categorias" id="filtroCategoriasOpciones" role="group" aria-label="Categoría"></div>
+        </fieldset>
+
+        <!-- Precio -->
+        <fieldset class="filtro-grupo">
+          <legend class="filtro-label">Precio</legend>
+          <div class="filtro-precio-inputs">
+            <label class="filtro-precio-field">
+              <span class="filtro-precio-prefix" aria-hidden="true">$</span>
+              <input type="number" id="filtroPrecioMin" name="min" inputmode="numeric" placeholder="Mín" min="0" aria-label="Precio mínimo">
+            </label>
+            <span class="filtro-precio-sep" aria-hidden="true">a</span>
+            <label class="filtro-precio-field">
+              <span class="filtro-precio-prefix" aria-hidden="true">$</span>
+              <input type="number" id="filtroPrecioMax" name="max" inputmode="numeric" placeholder="Máx" min="0" aria-label="Precio máximo">
+            </label>
+          </div>
+          <p class="filtro-ayuda" id="filtroPrecioRango"></p>
+        </fieldset>
+
+        <!-- Talla -->
+        <fieldset class="filtro-grupo" id="filtroTalla">
+          <legend class="filtro-label">Talla</legend>
+          <div class="filtro-chips filtro-chips--tallas" id="filtroTallasOpciones">
+            <!-- Se llena dinámicamente -->
+          </div>
+        </fieldset>
+
+        <!-- Disponibilidad -->
+        <fieldset class="filtro-grupo filtro-grupo--last">
+          <legend class="filtro-label">Disponibilidad</legend>
+          <label class="filtro-toggle-label" for="filtroConStock">
+            <div class="filtro-toggle-track">
+              <input type="checkbox" id="filtroConStock" name="stock" class="filtro-toggle-input">
+              <div class="filtro-toggle-thumb"></div>
+            </div>
+            <span>Solo con stock</span>
+          </label>
+        </fieldset>
+
+        <!-- Cierra el panel y muestra los resultados -->
+        <div class="filtros-footer">
+          <button type="button" id="btnVerResultados" class="btn-ver-resultados">Ver productos</button>
+        </div>
+
+      </aside>
+
+      <!-- Cuadrícula de productos -->
+      <div class="inicio-catalogo">
+        <!-- Título solo para lectores de pantalla: en Inicio los productos van primero -->
+        <h1 class="sr-only">Catálogo de Mariru Bazar</h1>
+
+        <div class="catalogo-barra">
+          <p class="catalogo-conteo" id="catalogoConteo" aria-live="polite">Cargando productos…</p>
+          <label class="catalogo-orden">
+            <span>Ordenar por</span>
+            <select id="ordenCatalogo" name="orden" aria-label="Ordenar productos">
+              <option value="recomendados">Recomendados</option>
+              <option value="precio-asc">Precio: menor a mayor</option>
+              <option value="precio-desc">Precio: mayor a menor</option>
+              <option value="nombre">Nombre: A a Z</option>
+            </select>
+          </label>
+        </div>
+        <div class="filtros-activos" id="filtrosActivos" aria-label="Filtros activos" hidden></div>
+
+        <div class="product-grid" id="productGrid">
+          <!-- Se llena con JS -->
+        </div>
+      </div>
+
+    </div><!-- /inicio-layout -->
+
   </main>
 
-<script type="module" src="js/pages/store.js"></script>
-<script type="module" src="js/ui/login-modal.js"></script>
-<script type="module" src="js/ui/background-parallax.js"></script>
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script type="module" src="js/pages/store.js"></script>
+  <script type="module" src="js/ui/login-modal.js"></script>
+  <script type="module" src="js/ui/sakura-petals.js"></script>
 </body>
 </html>

@@ -1,0 +1,396 @@
+[
+  {
+    "id": "mariru-demo-20261025-01",
+    "nombre": "Crossbody Cafe Madison Cady",
+    "categoria": "bolsos",
+    "precio": 249.5,
+    "stock": 7,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://chenson.com.mx/products/crossbody-cafe-madison-cady",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0074/3243/7829/files/MD25172-B_01_cdbc302e-bddb-45e4-8723-fda0ff04ca66.jpg?v=1773778230",
+      "https://cdn.shopify.com/s/files/1/0074/3243/7829/files/MD25172-B_02_04793766-09b2-477b-84a3-6365153be066.jpg?v=1773778230"
+    ],
+    "descripcion": "Bolso crossbody Madison Cady en color café, fabricado en poliéster. Formato compacto para llevar tus objetos de uso diario organizados.\nMedidas: 21.5 × 15.5 × 7.5 cm (largo × alto × ancho).",
+    "imagenes": [
+      "assets/productos-prueba/prueba-01-1-v2.png",
+      "assets/productos-prueba/prueba-01-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-02",
+    "nombre": "Crossbody Café Oscuro Madison Colección Felicia",
+    "categoria": "bolsos",
+    "precio": 274.5,
+    "stock": 8,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://chenson.com.mx/products/felicia-2",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0074/3243/7829/files/db0366be-0e76-48b3-8889-d95c4275c5b7.jpg?v=1761934631",
+      "https://cdn.shopify.com/s/files/1/0074/3243/7829/files/MD25161-D_02.jpg?v=1774898311"
+    ],
+    "descripcion": "Bolso crossbody Madison Felicia en color café oscuro y exterior de símil piel. Cuenta con tres compartimentos internos, cierre principal, broche decorativo y bolsillo trasero con cierre. Incluye asa larga ajustable.\nMedidas: 25 × 22 × 11 cm.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-02-1-v2.png",
+      "assets/productos-prueba/prueba-02-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-03",
+    "nombre": "Satchel Beige Madison Colección Alain",
+    "categoria": "bolsos",
+    "precio": 399.5,
+    "stock": 9,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://chenson.com.mx/products/satchel-beige-madison-coleccion-alain-1",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0074/3243/7829/files/MD25149-E_01.jpg?v=1768532318",
+      "https://cdn.shopify.com/s/files/1/0074/3243/7829/files/MD25149-E_15.jpg?v=1768532329"
+    ],
+    "descripcion": "Bolso satchel Madison Alain en color beige. Compartimento principal con cierre, bolsillo trasero y varios bolsillos interiores para separar tus pertenencias. Puede llevarse con su asa larga ajustable.\nMedidas: 36 × 24 × 14 cm.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-03-1-v2.png",
+      "assets/productos-prueba/prueba-03-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-04",
+    "nombre": "Crossbody Negro Madison Colección Malana",
+    "categoria": "bolsos",
+    "precio": 274.5,
+    "stock": 10,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://chenson.com.mx/products/malana-11",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0074/3243/7829/files/19114b21-c52d-4f46-96d2-343532820af0.jpg?v=1761934656",
+      "https://cdn.shopify.com/s/files/1/0074/3243/7829/files/MD25143-3_02.jpg?v=1774899700"
+    ],
+    "descripcion": "Bolso crossbody Madison Malana en color negro, elaborado en símil piel. Tiene dos compartimentos con cierre, bolsillo frontal, bolsillo interior y asa larga ajustable para llevarlo cruzado.\nMedidas: 23 × 17 × 7.5 cm.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-04-1-v2.png",
+      "assets/productos-prueba/prueba-04-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-05",
+    "nombre": "Satchel Negro Madison Chepina",
+    "categoria": "bolsos",
+    "precio": 349.5,
+    "stock": 11,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://chenson.com.mx/products/satchel-negro-madison-chepina",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0074/3243/7829/files/MD25010-3_01_54a15fcd-ea60-4854-9197-0bea64a9d1b7.jpg?v=1739402931",
+      "https://cdn.shopify.com/s/files/1/0074/3243/7829/files/MD25010-3_02_f0d6a3c7-76f2-4676-af2f-24efe816bd09.jpg?v=1739402932"
+    ],
+    "descripcion": "Bolso satchel Madison Chepina en color negro y exterior de poliéster. Incluye compartimento principal con cierre, dos bolsillos interiores, otro bolsillo con cierre y asa larga ajustable.\nMedidas: 28 × 26 × 14 cm. Altura del asa: 14 cm.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-05-1-v2.png",
+      "assets/productos-prueba/prueba-05-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-06",
+    "nombre": "Calvin Klein Eternity Parfum Hombre 100ml",
+    "categoria": "perfumes",
+    "precio": 1270.0,
+    "stock": 12,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://castillodefrancia.com/products/calvin-klein-eternity-parfum-hombre-100ml",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0561/3531/9728/files/images_32d012f3-e269-4f49-8cf1-d4b8ac4b0ffc.jpg?v=1790383606",
+      "https://cdn.shopify.com/s/files/1/0561/3531/9728/files/images_18571522-26fc-4190-95ec-87f7e1a1bd2d.jpg?v=1790383648"
+    ],
+    "descripcion": "Calvin Klein Eternity Parfum para hombre, presentación de 100 ml. Fragancia de perfil aromático y cálido que combina lavanda, un acorde de ron y vainilla. Frasco con atomizador. Esta presentación corresponde a Parfum, diferente de la versión Eau de Toilette.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-06-1-v2.png",
+      "assets/productos-prueba/prueba-06-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-07",
+    "nombre": "Yves Saint Laurent Black Opium Eau de Parfum Mujer 90ml",
+    "categoria": "perfumes",
+    "precio": 3225.0,
+    "stock": 6,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://castillodefrancia.com/products/yves-saint-laurent-black-opium-eau-de-parfum-mujer-90ml",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0561/3531/9728/files/048A0341.jpg?v=1719419569",
+      "https://cdn.shopify.com/s/files/1/0561/3531/9728/files/gps_generated_60f6f9ed-6ee0-4f92-a1bb-28d13d416d13.png?v=1731943902"
+    ],
+    "descripcion": "Yves Saint Laurent Black Opium Eau de Parfum para mujer, en frasco de 90 ml con atomizador. Combina el carácter tostado del café con vainilla y flores blancas. Su perfil dulce y cálido resulta apropiado para quienes disfrutan las fragancias intensas.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-07-1-v2.png",
+      "assets/productos-prueba/prueba-07-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-08",
+    "nombre": "Versace Crystal Noir Eau de Parfum Mujer 90ml",
+    "categoria": "perfumes",
+    "precio": 1665.0,
+    "stock": 7,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://castillodefrancia.com/products/versace-crystal-noir-eau-de-parfum-mujer-90ml",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0561/3531/9728/files/048A0759.jpg?v=1774734356",
+      "https://cdn.shopify.com/s/files/1/0561/3531/9728/files/048A0760.jpg?v=1774734356"
+    ],
+    "descripcion": "Versace Crystal Noir Eau de Parfum para mujer, presentación de 90 ml. Perfume de carácter floral y especiado con un fondo cálido. El protagonismo de la gardenia y las notas amaderadas le da un perfil envolvente. Incluye atomizador.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-08-1-v2.png",
+      "assets/productos-prueba/prueba-08-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-09",
+    "nombre": "Montblanc Legend Spirit Eau de Toilette Hombre 100ml",
+    "categoria": "perfumes",
+    "precio": 1240.0,
+    "stock": 8,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://castillodefrancia.com/products/montblanc-legend-spirit-eau-de-toilette-hombre-100ml",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://www.montblanc.com/dw/image/v2/bhdb_prd/on/demandware.static/-/Sites-montblanc-master/default/dwece52b36/images/all-images/MB115364/mwNVh8IATU-nzSbEH6lgxA_43c4c2b9.png?sw=1600&q=100",
+      "https://cdn.shopify.com/s/files/1/0561/3531/9728/files/81e73047-f8de-4cba-a4ff-3cc102a537e4.jpg?v=1774887518"
+    ],
+    "descripcion": "Montblanc Legend Spirit Eau de Toilette para hombre, frasco de 100 ml con atomizador. Fragancia fresca de familia amaderada aromática: combina una apertura cítrica con notas aromáticas, un acorde acuático y un fondo almizclado.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-09-1-v2.png",
+      "assets/productos-prueba/prueba-09-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2,
+    "fuenteImagenes": [
+      "https://www.montblanc.com/en-us/legend-spirit-eau-de-toilette-100-ml-MB115364.html",
+      "https://castillodefrancia.com/products/montblanc-legend-spirit-eau-de-toilette-hombre-100ml"
+    ]
+  },
+  {
+    "id": "mariru-demo-20261025-10",
+    "nombre": "Burberry The Beat Eau de Toilette Hombre 100ml",
+    "categoria": "perfumes",
+    "precio": 1030.0,
+    "stock": 9,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://castillodefrancia.com/products/burberry-the-beat-eau-de-toilette-hombre-100ml",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0561/3531/9728/products/THEBEAT100.jpg?v=1717775424",
+      "https://cdn.shopify.com/s/files/1/0561/3531/9728/files/download_6698a677-d863-48bb-9175-8bc686098647.jpg?v=1777581386"
+    ],
+    "descripcion": "Burberry The Beat Eau de Toilette para hombre, presentación de 100 ml. Fragancia de perfil amaderado y especiado con cítricos, pimienta y vetiver. Frasco con atomizador para aplicación sobre la piel.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-10-1-v2.png",
+      "assets/productos-prueba/prueba-10-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-11",
+    "nombre": "Coraline X Beauty Creations - Labial Jelly - Welcome Home",
+    "categoria": "maquillaje",
+    "precio": 232.0,
+    "stock": 10,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://beautycreationscosmetics.com.mx/products/coraline-x-beauty-creations-labial-jelly-welcome-home",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0589/6264/0986/files/C-CAKE.jpg?v=1788893368",
+      "https://cdn.shopify.com/s/files/1/0589/6264/0986/files/lipjellycake.jpg?v=1788893368"
+    ],
+    "descripcion": "Bálsamo labial Welcome Home de la colección Coraline × Beauty Creations. Tiene textura jelly, tono claro y aroma a pastel. El envase reproduce el pastel de la película e incluye aplicador. Diseñado para aportar brillo y suavidad a los labios.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-11-1-v2.png",
+      "assets/productos-prueba/prueba-11-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-12",
+    "nombre": "La Más Draga X Beauty Creations - Paleta de Rostro y Sombras",
+    "categoria": "maquillaje",
+    "precio": 459.0,
+    "stock": 11,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://beautycreationscosmetics.com.mx/products/la-mas-draga-x-beauty-creations-paleta-de-sombras-multiusos",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0589/6264/0986/files/IMAGE3.jpg?v=1786564593",
+      "https://cdn.shopify.com/s/files/1/0589/6264/0986/files/IMAGE1.jpg?v=1786564594"
+    ],
+    "descripcion": "Paleta de rostro y ojos La Más Draga × Beauty Creations. Reúne 19 sombras compactas con acabados mate y brillantes, tres rubores mate y un espejo. Una selección de colores para combinar el maquillaje de ojos y mejillas.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-12-1-v2.png",
+      "assets/productos-prueba/prueba-12-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-13",
+    "nombre": "Goosebumps X Beauty Creations - Aceite De Labios Y Mejillas pH - Monster Blood II",
+    "categoria": "maquillaje",
+    "precio": 90.3,
+    "stock": 12,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://beautycreationscosmetics.com.mx/products/goosebumps-x-beauty-creations-aceite-de-labios-y-mejillas-ph-monster-blood-ii",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0589/6264/0986/files/MONSTER-II_1_5a27bacb-f0ae-4176-af45-0950ecacc99d.jpg?v=1757108263",
+      "https://cdn.shopify.com/s/files/1/0589/6264/0986/files/MONSTER-II-BOX.jpg?v=1757108263"
+    ],
+    "descripcion": "Monster Blood II de Goosebumps × Beauty Creations es un aceite para labios y mejillas que reacciona al pH y deja un tono rosado. Su fórmula incluye aceite de semilla de girasol y ofrece un acabado brillante de color modulable.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-13-1-v2.png",
+      "assets/productos-prueba/prueba-13-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-14",
+    "nombre": "Coraline X Beauty Creations - Rubor Duo Color - Cute As A Button",
+    "categoria": "maquillaje",
+    "precio": 209.0,
+    "stock": 6,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://beautycreationscosmetics.com.mx/products/coraline-x-beauty-creations-rubor-duo-color-cute-as-a-button",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0589/6264/0986/files/CORALINE-BLUSH-CLOSED2.jpg?v=1788892716",
+      "https://cdn.shopify.com/s/files/1/0589/6264/0986/files/CORALINE-BLUSH-OPEN.jpg?v=1788892716"
+    ],
+    "descripcion": "Rubor en crema Cute As A Button de Coraline × Beauty Creations. Incluye dos tonos que pueden utilizarse por separado o mezclarse. Tiene aroma a pastel y puede aplicarse con brocha, esponja o los dedos para difuminar el color.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-14-1-v2.png",
+      "assets/productos-prueba/prueba-14-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  },
+  {
+    "id": "mariru-demo-20261025-15",
+    "nombre": "Coraline X Beauty Creations - Paleta De Sombras - Beyond The Door",
+    "categoria": "maquillaje",
+    "precio": 371.0,
+    "stock": 7,
+    "tallas": [],
+    "videos": [],
+    "esPrueba": true,
+    "fuente": {
+      "url": "https://beautycreationscosmetics.com.mx/products/coraline-x-beauty-creations-paleta-de-sombras-beyond-the-door",
+      "fecha": "2026-10-25",
+      "moneda": "MXN"
+    },
+    "imagenesOrigen": [
+      "https://cdn.shopify.com/s/files/1/0589/6264/0986/files/CORALINE-PAL-O3.jpg?v=1788893410",
+      "https://cdn.shopify.com/s/files/1/0589/6264/0986/files/CORALINE-PAL-CLOSED.jpg?v=1788893410"
+    ],
+    "descripcion": "Paleta de sombras Beyond The Door de Coraline × Beauty Creations. Contiene 10 tonos que combinan acabados mate y brillantes, inspirados en la película. Permite crear combinaciones suaves o de mayor intensidad según la cantidad aplicada.",
+    "imagenes": [
+      "assets/productos-prueba/prueba-15-1-v2.png",
+      "assets/productos-prueba/prueba-15-2-v2.png"
+    ],
+    "lotePrueba": "mariru-demo-20261025",
+    "revisionImagenes": 2
+  }
+]

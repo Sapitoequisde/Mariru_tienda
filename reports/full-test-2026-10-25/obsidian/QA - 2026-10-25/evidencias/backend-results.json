@@ -1,0 +1,208 @@
+[
+  {
+    "id": "B01",
+    "title": "App Check enforced on current callable",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B02",
+    "title": "Invalid request body rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B03",
+    "title": "Unknown request fields rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B04",
+    "title": "Invalid request ID rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B05",
+    "title": "Empty customer name rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B06",
+    "title": "Invalid phone rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B07",
+    "title": "Invalid payment rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B08",
+    "title": "Empty cart rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B09",
+    "title": "Zero quantity rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B10",
+    "title": "Fractional quantity rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B11",
+    "title": "Client supplied price rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B12",
+    "title": "Missing product rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B13",
+    "title": "Insufficient stock rejected without reservation",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B14",
+    "title": "Invalid size rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B15",
+    "title": "A product with sizes requires a size",
+    "status": "FAIL",
+    "environment": "SIMULATED_BACKEND",
+    "pending": "P08",
+    "detail": "Missing expected rejection."
+  },
+  {
+    "id": "B16",
+    "title": "Negative price rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B17",
+    "title": "Valid guest request uses authoritative price and reserves once",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B18",
+    "title": "Duplicate cart lines aggregate inventory correctly",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B19",
+    "title": "Replay is idempotent and does not resend",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B20",
+    "title": "Authenticated order can appear in customer history",
+    "status": "FAIL",
+    "environment": "SIMULATED_BACKEND",
+    "pending": "P03",
+    "detail": "Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- 'qa-customer'\n"
+  },
+  {
+    "id": "B21",
+    "title": "Meta failure restores stock and records failure",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B22",
+    "title": "A failed submission is not counted as a sale",
+    "status": "FAIL",
+    "environment": "SIMULATED_BACKEND",
+    "pending": "P04",
+    "detail": "Expected values to be strictly equal:\n\n'$100' !== '$0'\n"
+  },
+  {
+    "id": "B23",
+    "title": "Replay recovers after Meta accepted but final state update failed",
+    "status": "FAIL",
+    "environment": "SIMULATED_BACKEND",
+    "pending": "P06",
+    "detail": "Expected values to be strictly equal:\n\nfalse !== true\n"
+  },
+  {
+    "id": "B24",
+    "title": "Failed compensation can be resolved by replay",
+    "status": "FAIL",
+    "environment": "SIMULATED_BACKEND",
+    "pending": "P06",
+    "detail": "Expected values to be strictly equal:\n\nfalse !== true\n"
+  },
+  {
+    "id": "B25",
+    "title": "Two simultaneous requests do not oversell final unit (serialized model)",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B26",
+    "title": "Long report is rejected before reserving stock",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B27",
+    "title": "Legacy callable rejects unauthenticated use",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B28",
+    "title": "Legacy endpoint enforces the same App Check policy",
+    "status": "FAIL",
+    "environment": "SIMULATED_BACKEND",
+    "pending": "P02",
+    "detail": "Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- true\n"
+  },
+  {
+    "id": "B29",
+    "title": "Legacy endpoint follows delivery by agreement without automatic fee",
+    "status": "FAIL",
+    "environment": "SIMULATED_BACKEND",
+    "pending": "P02",
+    "detail": "Expected values to be strictly equal:\n\n180 !== 100\n"
+  },
+  {
+    "id": "B30",
+    "title": "Quantity above per-product limit rejected",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B31",
+    "title": "Inventory search normalizes accents",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  },
+  {
+    "id": "B32",
+    "title": "Stock validation rejects empty, fractional, negative and infinite values",
+    "status": "PASS",
+    "environment": "SIMULATED_BACKEND"
+  }
+]

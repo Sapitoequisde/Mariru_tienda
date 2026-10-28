@@ -2,37 +2,51 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mariru Bazar - Panel administrador</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/admin.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
 </head>
 <body class="admin-body">
 
-  <header class="navbar">
-    <span class="admin-brand">Mariru Bazar — Admin</span>
-    <button id="btnLogout" class="btn-logout" onclick="sessionStorage.removeItem('mariru_admin_logged'); window.location.href='inicio.html';">Cerrar sesión</button>
+  <a href="#contenidoAdmin" class="admin-skip">Ir al contenido</a>
+  <header class="navbar admin-topbar">
+    <a href="inicio.html" class="admin-marca"><img src="/assets/logo-mariru.webp" alt="Mariru Bazar"><span>Mariru Bazar<small>Administración</small></span></a>
+    <div class="admin-topbar-actions"><a href="inicio.html">Ver tienda</a><button id="btnLogout" class="btn-logout" type="button">Cerrar sesión</button></div>
   </header>
 
-  <a href="javascript:history.back()" class="btn-volver-seccion" aria-label="Regresar a la página anterior">↩ Volver</a>
+  <div class="admin-workspace">
+    <aside class="admin-sidebar">
+      <p class="admin-sidebar-label">Tu espacio de trabajo</p>
+      <nav aria-label="Secciones del administrador">
+        <a href="#resumen" aria-current="location"><span aria-hidden="true">◫</span> Resumen</a>
+        <a href="#inventario"><span aria-hidden="true">▦</span> Inventario</a>
+        <a href="#rendimiento"><span aria-hidden="true">↗</span> Rendimiento</a>
+        <a href="#reportes"><span aria-hidden="true">⇩</span> Reportes</a>
+      </nav>
+      <div class="admin-sidebar-tip"><strong>Todo a la mano</strong><p>Actualiza las existencias desde la tabla. Los cambios se reflejan en tu tienda.</p></div>
+    </aside>
+  <main class="admin-main" id="contenidoAdmin">
 
-
-  <main class="admin-main">
-
-    <section class="admin-hero">
+    <section class="admin-hero" id="resumen">
       <div>
-        <p class="admin-eyebrow">Panel de control</p>
-        <h1>Hola, administradora 👋</h1>
-        <p>Consulta el rendimiento de Mariru Bazar y gestiona tu inventario desde un solo lugar.</p>
+        <p class="admin-eyebrow">Tu tienda, en orden</p>
+        <h1>Un vistazo a Mariru</h1>
+        <p>Revisa cómo va tu tienda y prepara tus próximos hallazgos.</p>
       </div>
       <div>
         <div class="admin-hero-date" id="adminFechaActual"></div>
-        <div class="admin-data-status" id="adminEstadoDatos">Conectando con la base de datos...</div>
+        <div class="admin-data-status" id="adminEstadoDatos" role="status">Cargando datos de la tienda…</div>
       </div>
     </section>
 
-    <div class="admin-notificaciones" id="adminNotificaciones"></div>
+    <div class="admin-notificaciones" id="adminNotificaciones" role="status"></div>
+    <p class="admin-feedback" id="adminFeedback" role="status" hidden></p>
 
     <section class="admin-resumen" aria-label="Resumen de la tienda">
       <article class="admin-metrica metrica-ventas">
@@ -69,100 +83,115 @@
       </article>
     </section>
 
-    <section class="admin-seccion">
+    <section class="admin-seccion" id="inventario" aria-labelledby="inventarioTitulo">
       <div class="admin-seccion-header">
         <div>
-          <p class="admin-eyebrow">Catálogo</p>
-          <h2>Inventario de productos</h2>
+          <h2 id="inventarioTitulo">Tu inventario</h2>
+          <p class="admin-section-hint">Encuentra un producto y actualiza sus existencias.</p>
         </div>
-        <button class="btn-admin-accion" id="btnMostrarFormAgregar">+ Agregar producto</button>
+        <div class="admin-inventory-actions">
+          <button class="admin-button-secondary" id="btnCargarCatalogoPrueba" type="button" disabled>Cargar o actualizar productos de prueba</button>
+          <button class="btn-admin-accion" id="btnMostrarFormAgregar" type="button" aria-expanded="false" aria-controls="formAgregar">+ Agregar producto</button>
+        </div>
       </div>
+      <p class="admin-demo-info">El lote incluye 5 bolsos, 5 perfumes y 5 artículos de maquillaje. La carga actualiza las fotos originales del lote si hay correcciones, conservando precios, existencias y datos editados.</p>
+      <p id="adminDemoEstado" class="admin-demo-status" role="status" aria-live="polite" hidden></p>
 
       <form class="admin-form-agregar" id="formAgregar">
+  <div class="admin-form-heading form-grupo-full"><div><h3 id="formTitulo">Nuevo hallazgo</h3><p id="formSubtitulo">Agrega los detalles que verá tu clientela.</p></div><button type="button" class="admin-button-secondary" id="btnCerrarFormAgregar">Cerrar formulario</button></div>
 
   <div class="form-grupo">
-    <label>Nombre</label>
-    <input type="text" id="nuevoNombre" required>
+    <label for="nuevoNombre">Nombre del producto</label>
+    <input type="text" id="nuevoNombre" placeholder="Ej. Blusa rosa de manga corta" maxlength="150" required>
   </div>
 
   <div class="form-grupo">
-    <label>Categoría</label>
+    <label for="nuevaCategoria">Categoría</label>
     <select id="nuevaCategoria" required>
       <option value="ropa">Ropa</option>
       <option value="accesorios">Accesorios</option>
+      <option value="bolsos">Bolsos</option>
       <option value="maquillaje">Maquillaje</option>
       <option value="perfumes">Perfumes</option>
     </select>
   </div>
 
   <div class="form-grupo">
-    <label>Precio</label>
-    <input type="number" id="nuevoPrecio" min="0" required>
+    <label for="nuevoPrecio">Precio (MXN)</label>
+    <input type="number" id="nuevoPrecio" min="0" step="0.01" placeholder="0.00" required>
   </div>
 
   <div class="form-grupo">
-    <label>Stock</label>
-    <input type="number" id="nuevoStock" min="0" required>
+    <label for="nuevoStock">Unidades disponibles</label>
+    <input type="number" id="nuevoStock" min="0" step="1" placeholder="0" required>
   </div>
 
   <div class="form-grupo form-grupo-full">
-    <label>Descripción</label>
-    <textarea id="nuevaDescripcion" rows="2"></textarea>
+    <label for="nuevaDescripcion">Descripción</label>
+    <textarea id="nuevaDescripcion" rows="3" placeholder="Cuenta los detalles, medidas y estado del producto."></textarea>
   </div>
 
   <div class="form-grupo form-grupo-full">
-    <label>Tallas (opcional, separadas por coma — ej: CH, M, L, XL)</label>
+    <label for="nuevaTallas">Tallas (opcional, separadas por coma)</label>
     <input type="text" id="nuevaTallas" placeholder="Déjalo vacío si el producto no usa tallas">
   </div>
 
   <div class="form-grupo form-grupo-full">
-    <label>Colores</label>
-    <div class="colores-picker">
-      <input type="color" id="colorPicker" value="#e58aa5">
-      <button type="button" id="btnAgregarColor" class="btn-mini">+ Agregar color</button>
-    </div>
-    <div class="colores-lista" id="coloresLista"></div>
+    <p class="admin-ayuda">Cada color o variante debe guardarse como un producto independiente. Indica el color en el nombre o descripción y agrega sus propias imágenes y existencias.</p>
   </div>
 
   <div class="form-grupo form-grupo-full">
-    <label>Imágenes (puedes agregar las que quieras)</label>
+    <label for="inputImagenes">Fotos del producto</label>
     <input type="file" id="inputImagenes" accept="image/*" multiple hidden>
+    <label class="admin-check">
+      <input type="checkbox" id="quitarFondoAuto" checked>
+      Quitar el fondo automáticamente y guardar como PNG
+    </label>
     <button type="button" id="btnAgregarImagenes" class="btn-mini">+ Agregar imágenes</button>
+    <p class="admin-ayuda" id="estadoFondo" role="status"></p>
     <div class="media-preview" id="previewImagenes"></div>
   </div>
 
   <div class="form-grupo form-grupo-full">
-    <label>Videos (puedes agregar los que quieras)</label>
+    <label for="inputVideos">Videos (opcional)</label>
     <input type="file" id="inputVideos" accept="video/*" multiple hidden>
     <button type="button" id="btnAgregarVideos" class="btn-mini">+ Agregar videos</button>
     <div class="media-preview" id="previewVideos"></div>
   </div>
 
-  <button type="submit" class="btn-admin-accion form-grupo-full" id="btnGuardarProducto">Guardar producto</button>
-  <p class="form-status" id="formStatus"></p>
+  <div class="admin-form-footer form-grupo-full"><p class="form-status" id="formStatus" role="status"></p><button type="submit" class="btn-admin-accion" id="btnGuardarProducto">Guardar producto</button></div>
 
 </form>
+      <div class="admin-inventory-toolbar">
+        <label class="admin-search" for="adminBuscar"><span>Buscar producto</span><input id="adminBuscar" type="search" placeholder="Nombre o descripción…" autocomplete="off"></label>
+        <label for="adminCategoria"><span>Categoría</span><select id="adminCategoria"><option value="">Todas las categorías</option></select></label>
+        <label for="adminStockFiltro"><span>Existencias</span><select id="adminStockFiltro"><option value="">Todas</option><option value="bajo">Pocas unidades (1–5)</option><option value="agotado">Agotados</option><option value="disponible">Disponibles</option></select></label>
+        <label for="adminOrden"><span>Ordenar</span><select id="adminOrden"><option value="nombre">Nombre A–Z</option><option value="stock">Menos existencias</option><option value="precio">Menor precio</option></select></label>
+        <button id="adminLimpiarFiltros" class="admin-button-secondary" type="button">Limpiar filtros</button>
+      </div>
+      <p class="admin-results" id="adminResultados" role="status">Cargando inventario…</p>
       <div class="admin-tabla-wrap">
         <table class="admin-tabla">
+        <caption class="admin-sr-only">Inventario: consulta el producto, ajusta sus unidades y guarda los cambios de cada fila.</caption>
         <thead>
           <tr>
-            <th>Producto</th>
-            <th>Categoría</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th></th>
+            <th scope="col">Producto</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Existencias</th>
+            <th scope="col">Acciones</th>
           </tr>
         </thead>
-        <tbody id="tablaStockBody"></tbody>
+        <tbody id="tablaStockBody"><tr><td colspan="5" class="admin-tabla-vacia">Cargando tus productos…</td></tr></tbody>
         </table>
       </div>
+      <div class="admin-pagination"><span id="adminPaginaDetalle">—</span><div><button type="button" id="adminPaginaAnterior" class="admin-button-secondary" disabled>Anterior</button><button type="button" id="adminPaginaSiguiente" class="admin-button-secondary" disabled>Siguiente</button></div></div>
     </section>
 
-    <section class="admin-seccion">
+    <section class="admin-seccion" id="rendimiento" aria-labelledby="rendimientoTitulo">
       <div class="admin-section-title">
         <div>
-          <p class="admin-eyebrow">Analítica</p>
-          <h2>Rendimiento de la tienda</h2>
+          <h2 id="rendimientoTitulo">Rendimiento de la tienda</h2>
         </div>
         <span class="admin-section-hint">Actualizado con tus pedidos registrados</span>
       </div>
@@ -173,19 +202,19 @@
       </div>
     </section>
 
-    <section class="admin-seccion">
+    <section class="admin-seccion admin-report-section" id="reportes" aria-labelledby="reportesTitulo">
       <div class="admin-reporte">
         <div class="reporte-icono">📊</div>
         <div>
-          <p class="admin-eyebrow">Exportación</p>
-          <h2>Reporte de ventas</h2>
+          <h2 id="reportesTitulo">Llévate tus números</h2>
           <p class="admin-reporte-texto">Descarga un CSV con el stock actual, unidades vendidas e ingresos por producto.</p>
         </div>
       </div>
-      <button class="btn-admin-accion" id="btnReporte">Generar reporte</button>
+      <button class="btn-admin-accion" id="btnReporte" type="button">Descargar CSV</button>
     </section>
 
   </main>
+  </div>
 
   <script type="module" src="js/pages/admin.js"></script>
   <script type="module" src="js/ui/background-parallax.js"></script>

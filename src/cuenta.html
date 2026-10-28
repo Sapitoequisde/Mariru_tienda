@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariru Bazar - Mi cuenta</title>
+  <meta name="description" content="Consulta y administra tu cuenta de Mariru Bazar.">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/tienda.css">
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
+</head>
+<body class="page-cuenta tienda">
+
+  <header class="barra" id="navbarGlobal"></header>
+
+  <main class="cuenta-main">
+    <header class="pagina-encabezado">
+      <h1 class="pagina-titulo">Mi cuenta</h1>
+      <p class="pagina-lead">Tus datos, direcciones y seguridad, en un solo lugar.</p>
+    </header>
+
+    <!-- Se muestra mientras carga o si no hay sesión -->
+    <div id="cuentaEstado" class="cuenta-tarjeta cuenta-estado" role="status">
+      <p>Cargando tu cuenta...</p>
+    </div>
+
+    <div id="cuentaContenido" class="cuenta-contenido" hidden>
+
+      <!-- ===== Información de la cuenta ===== -->
+      <section class="cuenta-tarjeta" aria-labelledby="cuentaInfoTitulo">
+        <div class="cuenta-perfil">
+          <div class="cuenta-avatar" id="cuentaAvatar" aria-hidden="true"></div>
+          <div class="cuenta-perfil-texto">
+            <h2 id="cuentaInfoTitulo" class="cuenta-nombre"></h2>
+            <p class="cuenta-correo" id="cuentaCorreo"></p>
+          </div>
+        </div>
+
+        <dl class="cuenta-datos">
+          <div>
+            <dt>Correo verificado</dt>
+            <dd>
+              <span id="cuentaVerificado"></span>
+              <button type="button" id="btnReenviarVerificacion" class="cuenta-enlace" hidden>Reenviar correo de verificación</button>
+            </dd>
+          </div>
+          <div>
+            <dt>Método de acceso</dt>
+            <dd id="cuentaProveedor"></dd>
+          </div>
+          <div>
+            <dt>Cliente desde</dt>
+            <dd id="cuentaCreada"></dd>
+          </div>
+          <div>
+            <dt>Último acceso</dt>
+            <dd id="cuentaUltimoAcceso"></dd>
+          </div>
+        </dl>
+
+        <form id="formNombre" class="cuenta-form cuenta-form-linea" novalidate>
+          <div class="cuenta-campo">
+            <label for="cuentaNombreInput">Nombre</label>
+            <input type="text" id="cuentaNombreInput" maxlength="80" autocomplete="name" required>
+          </div>
+          <button type="submit" class="cuenta-btn">Guardar nombre</button>
+          <p class="cuenta-mensaje" id="mensajeNombre" role="status"></p>
+        </form>
+
+        <a href="pedidos.html" class="cuenta-enlace-pedidos">Ver mis pedidos →</a>
+      </section>
+
+      <!-- ===== Direcciones guardadas ===== -->
+      <section class="cuenta-tarjeta" aria-labelledby="direccionesTitulo">
+        <div class="cuenta-seccion-encabezado">
+          <div>
+            <h2 id="direccionesTitulo">Direcciones guardadas</h2>
+            <p class="cuenta-ayuda">Solo entregamos en Hermosillo, Sonora. Puedes guardar hasta 5 direcciones.</p>
+          </div>
+          <button type="button" id="btnNuevaDireccion" class="cuenta-btn">+ Agregar dirección</button>
+        </div>
+
+        <div id="direccionesLista" class="direcciones-lista"></div>
+
+        <form id="formDireccion" class="cuenta-form direccion-form" novalidate hidden>
+          <h3 id="formDireccionTitulo">Nueva dirección</h3>
+          <div class="cuenta-form-grid">
+            <div class="cuenta-campo">
+              <label for="dirAlias">Nombre de la dirección</label>
+              <input type="text" id="dirAlias" maxlength="40" placeholder="Casa, Trabajo..." required>
+            </div>
+            <div class="cuenta-campo">
+              <label for="dirDestinatario">Quién recibe</label>
+              <input type="text" id="dirDestinatario" maxlength="80" autocomplete="name" required>
+            </div>
+            <div class="cuenta-campo cuenta-campo-ancho">
+              <label for="dirCalle">Calle y número</label>
+              <input type="text" id="dirCalle" maxlength="120" autocomplete="address-line1" required>
+            </div>
+            <div class="cuenta-campo">
+              <label for="dirColonia">Colonia</label>
+              <input type="text" id="dirColonia" maxlength="80" required>
+            </div>
+            <div class="cuenta-campo">
+              <label for="dirCodigoPostal">Código postal</label>
+              <input type="text" id="dirCodigoPostal" inputmode="numeric" maxlength="5" pattern="\d{5}" autocomplete="postal-code" required>
+            </div>
+            <div class="cuenta-campo">
+              <label for="dirTelefono">Teléfono de contacto</label>
+              <input type="tel" id="dirTelefono" maxlength="20" autocomplete="tel" required>
+            </div>
+            <div class="cuenta-campo">
+              <label>Ciudad</label>
+              <input type="text" value="Hermosillo, Sonora" disabled>
+            </div>
+            <div class="cuenta-campo cuenta-campo-ancho">
+              <label for="dirReferencias">Referencias <span class="cuenta-opcional">(opcional)</span></label>
+              <textarea id="dirReferencias" maxlength="200" rows="2" placeholder="Entre calles, color de la casa..."></textarea>
+            </div>
+            <label class="cuenta-checkbox cuenta-campo-ancho">
+              <input type="checkbox" id="dirPredeterminada">
+              Usar como dirección principal
+            </label>
+          </div>
+          <p class="cuenta-mensaje" id="mensajeDireccion" role="status"></p>
+          <div class="cuenta-acciones">
+            <button type="button" id="btnCancelarDireccion" class="cuenta-btn cuenta-btn-secundario">Cancelar</button>
+            <button type="submit" class="cuenta-btn">Guardar dirección</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===== Seguridad ===== -->
+      <section class="cuenta-tarjeta" aria-labelledby="seguridadTitulo">
+        <h2 id="seguridadTitulo">Cambiar contraseña</h2>
+
+        <p class="cuenta-ayuda" id="passwordGoogle" hidden>
+          Entras con tu cuenta de Google, así que tu contraseña se administra desde Google y no desde Mariru Bazar.
+        </p>
+
+        <form id="formPassword" class="cuenta-form" novalidate hidden>
+          <input type="email" id="passUsuarioOculto" autocomplete="username" hidden>
+          <div class="cuenta-form-grid">
+            <div class="cuenta-campo cuenta-campo-ancho">
+              <label for="passActual">Contraseña actual</label>
+              <input type="password" id="passActual" autocomplete="current-password" required>
+            </div>
+            <div class="cuenta-campo">
+              <label for="passNueva">Nueva contraseña</label>
+              <input type="password" id="passNueva" autocomplete="new-password" required>
+            </div>
+            <div class="cuenta-campo">
+              <label for="passConfirmar">Confirmar nueva contraseña</label>
+              <input type="password" id="passConfirmar" autocomplete="new-password" required>
+            </div>
+          </div>
+          <p class="cuenta-ayuda" id="passRequisitos">Mínimo 12 caracteres, con mayúscula, minúscula, número y símbolo.</p>
+          <p class="cuenta-mensaje" id="mensajePassword" role="status"></p>
+          <div class="cuenta-acciones">
+            <button type="submit" class="cuenta-btn">Actualizar contraseña</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===== Sesión ===== -->
+      <section class="cuenta-tarjeta cuenta-sesion" aria-labelledby="sesionTitulo">
+        <div>
+          <h2 id="sesionTitulo">Cerrar sesión</h2>
+          <p class="cuenta-ayuda">Cierra tu sesión en este dispositivo. Tu carrito se conserva.</p>
+        </div>
+        <button type="button" id="btnCerrarSesion" class="cuenta-btn cuenta-btn-secundario">Cerrar sesión</button>
+      </section>
+
+      <!-- ===== Eliminar cuenta ===== -->
+      <section class="cuenta-tarjeta cuenta-peligro" aria-labelledby="eliminarTitulo">
+        <h2 id="eliminarTitulo">Eliminar cuenta</h2>
+        <p class="cuenta-ayuda">
+          Se eliminarán tu perfil, tus direcciones guardadas y tu acceso. Esta acción no se puede deshacer.
+          Los pedidos que ya enviaste a Mariru no se borran con tu cuenta; si quieres que se eliminen, <a href="contacto.html">contáctala</a>.
+        </p>
+
+        <p class="cuenta-ayuda" id="eliminarAdminAviso" hidden>
+          Esta es la cuenta administradora de la tienda y no se puede eliminar desde aquí.
+        </p>
+
+        <button type="button" id="btnMostrarEliminar" class="cuenta-btn cuenta-btn-peligro">Quiero eliminar mi cuenta</button>
+
+        <form id="formEliminar" class="cuenta-form" novalidate hidden>
+          <div class="cuenta-campo" id="campoEliminarPass" hidden>
+            <label for="eliminarPass">Confirma tu contraseña</label>
+            <input type="password" id="eliminarPass" autocomplete="current-password">
+          </div>
+          <p class="cuenta-ayuda" id="eliminarGoogleAviso" hidden>Se abrirá una ventana de Google para confirmar que eres tú.</p>
+          <div class="cuenta-campo">
+            <label for="eliminarConfirmacion">Escribe <strong>ELIMINAR</strong> para confirmar</label>
+            <input type="text" id="eliminarConfirmacion" autocomplete="off" autocapitalize="characters" spellcheck="false">
+          </div>
+          <p class="cuenta-mensaje" id="mensajeEliminar" role="status"></p>
+          <div class="cuenta-acciones">
+            <button type="button" id="btnCancelarEliminar" class="cuenta-btn cuenta-btn-secundario">Cancelar</button>
+            <button type="submit" class="cuenta-btn cuenta-btn-peligro">Eliminar mi cuenta definitivamente</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script type="module" src="js/pages/account.js"></script>
+  <script type="module" src="js/ui/sakura-petals.js"></script>
+</body>
+</html>

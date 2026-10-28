@@ -1,0 +1,75 @@
+
+> mariru_tienda@1.0.0 build
+> vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 61 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/login-admin.html                                       0.41 kB │ gzip:     0.29 kB
+dist/index.html                                             0.68 kB │ gzip:     0.42 kB
+dist/categorias.html                                        1.46 kB │ gzip:     0.73 kB
+dist/carrito.html                                           5.55 kB │ gzip:     1.93 kB
+dist/contacto.html                                          5.91 kB │ gzip:     2.22 kB
+dist/cookies.html                                           6.11 kB │ gzip:     2.19 kB
+dist/envios.html                                            7.00 kB │ gzip:     2.45 kB
+dist/terminos.html                                          7.34 kB │ gzip:     2.63 kB
+dist/producto.html                                          9.08 kB │ gzip:     2.99 kB
+dist/privacidad.html                                        9.15 kB │ gzip:     3.08 kB
+dist/inicio.html                                            9.47 kB │ gzip:     2.94 kB
+dist/cuenta.html                                           10.39 kB │ gzip:     2.68 kB
+dist/admin.html                                            11.20 kB │ gzip:     3.30 kB
+dist/sobre-mi.html                                         11.76 kB │ gzip:     3.79 kB
+dist/assets/ort.bundle.min-OfoG_cy9.mjs                   399.90 kB
+dist/assets/ort.webgpu.bundle.min-CEayb2S6.mjs            399.92 kB
+dist/assets/ort-wasm-simd-threaded.jsep-D5Jk56-t.wasm  23,914.39 kB │ gzip: 5,743.61 kB
+dist/assets/producto-mSn1uIZb.css                           7.41 kB │ gzip:     1.98 kB
+dist/assets/admin-g4aQa9Nr.css                             12.09 kB │ gzip:     2.88 kB
+dist/assets/style-C3Ud8MDG.css                            117.50 kB │ gzip:    22.71 kB
+dist/assets/pedidos-CxZ1EX-Z.js                             0.03 kB │ gzip:     0.05 kB
+dist/assets/carrito-DGYgBip5.js                             0.18 kB │ gzip:     0.15 kB
+dist/assets/contacto-DGYgBip5.js                            0.18 kB │ gzip:     0.15 kB
+dist/assets/inicio-DGYgBip5.js                              0.18 kB │ gzip:     0.15 kB
+dist/assets/producto-nXhXf-SN.js                            0.18 kB │ gzip:     0.15 kB
+dist/assets/cookies-B7yzGS9x.js                             0.23 kB │ gzip:     0.18 kB
+dist/assets/envios-B7yzGS9x.js                              0.23 kB │ gzip:     0.18 kB
+dist/assets/privacidad-B7yzGS9x.js                          0.23 kB │ gzip:     0.18 kB
+dist/assets/terminos-B7yzGS9x.js                            0.23 kB │ gzip:     0.18 kB
+dist/assets/password-policy-C_PNkB7I.js                     0.81 kB │ gzip:     0.47 kB
+dist/assets/legal-toc-DR6me8Kh.js                           0.90 kB │ gzip:     0.53 kB
+dist/assets/sobreMi-Cm05Yhm3.js                             1.97 kB │ gzip:     0.89 kB
+dist/assets/categorias-CH0jN2UZ.js                          3.05 kB │ gzip:     1.35 kB
+dist/assets/sakura-petals-Ba-YBUtk.js                      12.85 kB │ gzip:     5.08 kB
+dist/assets/cuenta-DOwfmGUT.js                             13.07 kB │ gzip:     4.44 kB
+dist/assets/admin-DULeV9mV.js                              23.12 kB │ gzip:     7.80 kB
+dist/assets/login-modal-VYYwgtiT.js                        41.81 kB │ gzip:    12.84 kB
+dist/assets/dist-DZZ37cmy.js                               83.41 kB │ gzip:    22.90 kB
+dist/assets/ort.bundle.min-UHkM_0--.js                    390.00 kB │ gzip:   104.97 kB
+dist/assets/ort.webgpu.bundle.min-KS-B5dyf.js             390.02 kB │ gzip:   104.98 kB
+dist/assets/background-parallax-CQDBADsW.js               604.76 kB │ gzip:   181.74 kB
+
+✓ built in 2.74s
+<script src="reload-splash.js"> in "/carrito.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/admin.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/inicio.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/cuenta.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/cookies.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/categorias.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/login-admin.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/terminos.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/envios.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/producto.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/contacto.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/sobre-mi.html" can't be bundled without type="module" attribute
+<script src="reload-splash.js"> in "/privacidad.html" can't be bundled without type="module" attribute
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+npm notice
+npm notice New major version of npm available! 11.19.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

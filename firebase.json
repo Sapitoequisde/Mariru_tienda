@@ -7,7 +7,69 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "cleanUrls": true
+    "cleanUrls": true,
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "Permissions-Policy",
+            "value": "camera=(), microphone=(), geolocation=()"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "SAMEORIGIN"
+          },
+          {
+            "key": "Strict-Transport-Security",
+            "value": "max-age=31536000; includeSubDomains"
+          },
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://staticimgly.com https://cdn.jsdelivr.net https://apis.google.com https://www.gstatic.com https://www.google.com/recaptcha/; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://*.firebasestorage.googleapis.com https://firebasestorage.googleapis.com https://lh3.googleusercontent.com https://www.gstatic.com/recaptcha/; media-src 'self' blob: https://firebasestorage.googleapis.com; connect-src 'self' https://staticimgly.com https://*.googleapis.com https://*.firebaseio.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firebasestorage.googleapis.com https://storage.googleapis.com https://*.cloudfunctions.net https://*.run.app https://www.google.com/recaptcha/ wss://*.firebaseio.com; frame-src https://accounts.google.com https://*.firebaseapp.com https://www.google.com/recaptcha/; worker-src 'self' blob:; upgrade-insecure-requests"
+          }
+        ]
+      },
+      {
+        "source": "/assets/**/*.@(js|mjs|css|wasm)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "/assets/**/*.@(png|webp|jpg|jpeg|svg|gif)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=604800"
+          }
+        ]
+      },
+      {
+        "source": "/fonts/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=2592000"
+          }
+        ]
+      }
+    ]
+  },
+  "functions": {
+    "source": "functions",
+    "codebase": "default"
   },
   "firestore": {
     "rules": "firestore.rules"

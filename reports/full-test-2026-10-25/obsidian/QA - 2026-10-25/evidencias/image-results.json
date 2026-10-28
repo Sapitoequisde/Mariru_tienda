@@ -1,0 +1,35 @@
+[
+  {
+    "id": "I01",
+    "title": "PNG file name normalization",
+    "status": "PASS",
+    "environment": "ACTUAL_LOCAL_IMAGE_PROCESSOR",
+    "detail": {
+      "valid": true
+    }
+  },
+  {
+    "id": "I02",
+    "title": "Actual JPEG-to-PNG fallback",
+    "status": "PASS",
+    "environment": "ACTUAL_LOCAL_IMAGE_PROCESSOR",
+    "detail": {
+      "valid": true,
+      "width": 900,
+      "height": 1350,
+      "transparentFraction": 0
+    }
+  },
+  {
+    "id": "I03",
+    "title": "Actual local background removal creates transparent PNG",
+    "status": "PASS",
+    "environment": "ACTUAL_LOCAL_IMAGE_PROCESSOR",
+    "detail": {
+      "valid": true,
+      "width": 900,
+      "height": 1350,
+      "transparentFraction": 0.8161341563786009
+    }
+  }
+]

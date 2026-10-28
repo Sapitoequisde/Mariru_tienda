@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariru Bazar - Términos y Condiciones</title>
+  <meta name="description" content="Términos y condiciones de uso de Mariru Bazar.">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/tienda.css">
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
+</head>
+<body class="page-legal tienda">
+
+  <header class="barra" id="navbarGlobal"></header>
+
+  <!-- Modal de Login -->
+  <div id="loginOverlay" class="login-overlay" aria-hidden="true">
+    <div class="login-modal glass" role="dialog" aria-modal="true" aria-labelledby="loginModalTitulo">
+      <button id="btnCerrarLogin" class="login-close" aria-label="Cerrar">✕</button>
+      <img src="/assets/logo-mariru.webp" alt="Mariru" class="login-modal-logo">
+      <h2 id="loginModalTitulo" class="login-modal-titulo">Iniciar sesión</h2>
+      <form id="formLoginModal" class="login-modal-form" novalidate>
+        <div class="login-campo" hidden>
+          <label for="loginNombre">Nombre</label>
+          <input type="text" id="loginNombre" placeholder="Tu nombre" autocomplete="name">
+        </div>
+        <div class="login-campo">
+          <label for="loginUsuario">Correo electrónico</label>
+          <input type="email" id="loginUsuario" placeholder="ejemplo@correo.com" autocomplete="email" required>
+        </div>
+        <div class="login-campo">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" placeholder="Tu contraseña" autocomplete="current-password" required>
+        </div>
+        <div class="login-campo" hidden>
+          <label for="loginConfirmarPass">Confirmar contraseña</label>
+          <input type="password" id="loginConfirmarPass" placeholder="Repite tu contraseña" autocomplete="new-password">
+        </div>
+        <div class="login-campo login-campo-terminos" hidden>
+          <label class="login-checkbox-label">
+            <input type="checkbox" id="loginAceptaTerminos">
+            Acepto los <a href="terminos.html" target="_blank">Términos y Condiciones</a> y el <a href="privacidad.html" target="_blank">Aviso de Privacidad</a>
+          </label>
+        </div>
+        <p id="loginMensajeError" class="login-error" role="alert"></p>
+        <button type="submit" class="btn-login-modal">Entrar</button>
+        <button type="button" id="btnResetPassword" class="btn-reset-password">¿Olvidaste tu contraseña?</button>
+        <div class="login-separador"><span>o continúa con</span></div>
+        <button type="button" id="btnLoginGoogle" class="btn-login-google">
+          <span aria-hidden="true">G</span> Continuar con Google
+        </button>
+        <p class="login-cambiar-modo">
+          <span id="loginTextoModo">¿Aún no tienes una cuenta?</span>
+          <button type="button" id="btnCambiarModoLogin">Crear una cuenta nueva</button>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <div class="legal-layout">
+    <nav class="legal-indice" id="legalIndice" aria-label="Contenido de la página"></nav>
+  <main class="legal-main">
+    <h1 class="legal-titulo">Términos y Condiciones</h1>
+    <p class="legal-fecha">Última actualización: 6 de octubre de 2026</p>
+
+    <section class="legal-seccion">
+      <h2>1. Aceptación de los términos</h2>
+      <p>Al acceder y utilizar el sitio web de Mariru Bazar (en adelante, "el Sitio"), el usuario acepta cumplir con los presentes Términos y Condiciones. Si no está de acuerdo con alguno de ellos, deberá abstenerse de utilizar el Sitio.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>2. Uso del sitio</h2>
+      <p>El Sitio está destinado a la exhibición y venta de productos. El usuario se compromete a utilizar el Sitio de manera lícita, sin realizar acciones que puedan dañar, deshabilitar o deteriorar su funcionamiento.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>3. Registro y cuentas de usuario</h2>
+      <p>No es necesario crear una cuenta para solicitar un pedido. El usuario puede agregar productos al carrito o elegir un producto directamente y confirmar el pedido desde el sitio.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>4. Productos, pedidos y pagos</h2>
+      <p>Las ventas se realizan únicamente en Hermosillo, Sonora, México. Los productos están sujetos a disponibilidad y los precios publicados corresponden a los productos; la entrega y cualquier costo relacionado se acuerdan por WhatsApp.</p>
+      <p class="legal-destacado">El sitio no procesa pagos. Cuando el usuario confirma el pedido, el backend valida la disponibilidad y envía automáticamente un reporte al WhatsApp de Mariru mediante WhatsApp Business Platform. La solicitud aún no es una venta confirmada hasta que Mariru confirme disponibilidad, entrega y pago. El usuario puede elegir transferencia, depósito o efectivo; el pago en efectivo requiere coordinarse directamente por WhatsApp.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>5. Propiedad intelectual</h2>
+      <p>Todo el contenido del Sitio, incluyendo imágenes, textos, logotipos y diseños, pertenece a Mariru Bazar o a sus respectivos autores y está protegido por las leyes de propiedad intelectual aplicables.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>6. Limitación de responsabilidad</h2>
+      <p>Mariru Bazar procurará mantener el Sitio disponible y la información actualizada. Esta cláusula no limita los derechos irrenunciables del consumidor ni las responsabilidades que establezca la legislación aplicable.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>7. Modificaciones</h2>
+      <p>Mariru Bazar podrá actualizar estos Términos y Condiciones cuando sea necesario. Las modificaciones se publicarán en esta página indicando su fecha de actualización y no afectarán pedidos ya confirmados salvo que la ley disponga otra cosa.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>8. Legislación aplicable</h2>
+      <p>Estos Términos se rigen por las leyes vigentes en los Estados Unidos Mexicanos. Cualquier controversia derivada del uso del Sitio se someterá a la jurisdicción de los tribunales competentes.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>9. Contacto</h2>
+      <p>Para cualquier consulta relacionada con estos Términos y Condiciones, puede comunicarse a <a href="mailto:Mariru_bazar@gmail.com">Mariru_bazar@gmail.com</a>.</p>
+    </section>
+  </main>
+  </div>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script type="module" src="js/pages/store.js"></script>
+  <script type="module" src="js/ui/login-modal.js"></script>
+  <script type="module" src="js/ui/sakura-petals.js"></script>
+  <script type="module" src="js/ui/legal-toc.js"></script>
+</body>
+</html>

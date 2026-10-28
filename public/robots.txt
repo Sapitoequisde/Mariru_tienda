@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /cuenta.html
+Disallow: /pedidos.html
+Disallow: /carrito.html

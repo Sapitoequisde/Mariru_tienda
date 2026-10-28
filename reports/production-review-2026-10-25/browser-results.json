@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "Nota visible en primera visita",
+    "Detalle de producto cargado",
+    "Agregar al carrito funciona en almacenamiento del navegador de prueba",
+    "Resumen y formulario de pedido abren; no se envio pedido",
+    "envios.html: 200",
+    "terminos.html: 200",
+    "privacidad.html: 200",
+    "cookies.html: 200",
+    "contacto.html: 200",
+    "sobre-mi.html: 200",
+    "cuenta.html: 200",
+    "categorias.html: 200",
+    "Administrador redirige sin sesion",
+    "escritorio: productos reales 1",
+    "escritorio: imagen cargada True",
+    "escritorio: overflow horizontal False",
+    "Carrito y formulario de pedido con producto real: OK; sin enviar solicitud",
+    "movil: productos reales 1",
+    "movil: imagen cargada True",
+    "movil: overflow horizontal False"
+  ],
+  "runtimeErrors": []
+}

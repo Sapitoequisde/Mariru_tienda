@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariru Bazar - Política de Cookies</title>
+  <meta name="description" content="Política de cookies y almacenamiento local de Mariru Bazar.">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/tienda.css">
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
+</head>
+<body class="page-legal tienda">
+
+  <header class="barra" id="navbarGlobal"></header>
+
+  <!-- Modal de Login -->
+  <div id="loginOverlay" class="login-overlay" aria-hidden="true">
+    <div class="login-modal glass" role="dialog" aria-modal="true" aria-labelledby="loginModalTitulo">
+      <button id="btnCerrarLogin" class="login-close" aria-label="Cerrar">✕</button>
+      <img src="/assets/logo-mariru.webp" alt="Mariru" class="login-modal-logo">
+      <h2 id="loginModalTitulo" class="login-modal-titulo">Iniciar sesión</h2>
+      <form id="formLoginModal" class="login-modal-form" novalidate>
+        <div class="login-campo" hidden>
+          <label for="loginNombre">Nombre</label>
+          <input type="text" id="loginNombre" placeholder="Tu nombre" autocomplete="name">
+        </div>
+        <div class="login-campo">
+          <label for="loginUsuario">Correo electrónico</label>
+          <input type="email" id="loginUsuario" placeholder="ejemplo@correo.com" autocomplete="email" required>
+        </div>
+        <div class="login-campo">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" placeholder="Tu contraseña" autocomplete="current-password" required>
+        </div>
+        <div class="login-campo" hidden>
+          <label for="loginConfirmarPass">Confirmar contraseña</label>
+          <input type="password" id="loginConfirmarPass" placeholder="Repite tu contraseña" autocomplete="new-password">
+        </div>
+        <div class="login-campo login-campo-terminos" hidden>
+          <label class="login-checkbox-label">
+            <input type="checkbox" id="loginAceptaTerminos">
+            Acepto los <a href="terminos.html" target="_blank">Términos y Condiciones</a> y el <a href="privacidad.html" target="_blank">Aviso de Privacidad</a>
+          </label>
+        </div>
+        <p id="loginMensajeError" class="login-error" role="alert"></p>
+        <button type="submit" class="btn-login-modal">Entrar</button>
+        <button type="button" id="btnResetPassword" class="btn-reset-password">¿Olvidaste tu contraseña?</button>
+        <div class="login-separador"><span>o continúa con</span></div>
+        <button type="button" id="btnLoginGoogle" class="btn-login-google">
+          <span aria-hidden="true">G</span> Continuar con Google
+        </button>
+        <p class="login-cambiar-modo">
+          <span id="loginTextoModo">¿Aún no tienes una cuenta?</span>
+          <button type="button" id="btnCambiarModoLogin">Crear una cuenta nueva</button>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <div class="legal-layout">
+    <nav class="legal-indice" id="legalIndice" aria-label="Contenido de la página"></nav>
+  <main class="legal-main">
+    <h1 class="legal-titulo">Política de Cookies y Almacenamiento Local</h1>
+    <p class="legal-fecha">Última actualización: 5 de octubre de 2026</p>
+
+    <section class="legal-seccion">
+      <h2>1. ¿Qué son las cookies y el almacenamiento local?</h2>
+      <p>Las cookies son pequeños archivos de texto que los sitios web almacenan en el navegador del usuario. El almacenamiento local (localStorage) es una tecnología similar que permite guardar datos en el navegador de forma persistente.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>2. Uso de localStorage</h2>
+      <p>Mariru Bazar utiliza localStorage para:</p>
+      <ul>
+        <li><strong>Carrito de compras</strong> — almacenamos los productos que agregas al carrito para que no se pierdan al navegar entre páginas o cerrar el navegador.</li>
+        <li><strong>Favoritos</strong> — guardamos la lista de productos marcados como favoritos.</li>
+      </ul>
+      <p class="legal-destacado">Estos datos se almacenan únicamente en tu navegador y no se envían a servidores externos.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>3. Cookies de sesión (Firebase)</h2>
+      <p>Al iniciar sesión, Firebase Authentication utiliza mecanismos de almacenamiento del navegador (cookies y/o IndexedDB) para mantener tu sesión activa. Estos datos son necesarios para el funcionamiento del sitio y se eliminan al cerrar sesión.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>4. Cookies de terceros</h2>
+      <p>Si utilizas la opción "Continuar con Google", Google puede establecer cookies propias conforme a su política de privacidad.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>5. Cómo gestionar las cookies</h2>
+      <p>Puedes configurar tu navegador para rechazar cookies o eliminar las existentes. Ten en cuenta que deshabilitar el almacenamiento local puede afectar funciones como el carrito de compras.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>6. Contacto</h2>
+      <p>Para dudas sobre esta política, escríbenos a <a href="mailto:Mariru_bazar@gmail.com">Mariru_bazar@gmail.com</a>.</p>
+    </section>
+  </main>
+  </div>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script type="module" src="js/pages/store.js"></script>
+  <script type="module" src="js/ui/login-modal.js"></script>
+  <script type="module" src="js/ui/sakura-petals.js"></script>
+  <script type="module" src="js/ui/legal-toc.js"></script>
+</body>
+</html>

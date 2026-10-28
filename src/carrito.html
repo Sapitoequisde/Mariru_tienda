@@ -2,87 +2,111 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mariru Bazar - Carrito</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Tu carrito de compras en Mariru Bazar.">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/tienda.css">
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
 </head>
-<body class="page-carrito">
+<body class="page-carrito tienda">
 
-  <a href="javascript:history.back()" class="btn-volver">↩ volver</a>
+  <header class="barra" id="navbarGlobal"></header>
 
-  <main class="carrito-main" id="carritoMain">
-    <h1 class="carrito-titulo">Tu carrito</h1>
-    <div class="carrito-lista" id="carritoLista">
-      <!-- Los productos del carrito se insertan aquí con JavaScript -->
-    </div>
-  </main>
-
-  <aside class="carrito-panel" id="carritoPanel">
-    <div class="carrito-info-botones">
-      <button type="button" class="carrito-info-btn">Conoce sobre el<br>proceso de compra</button>
-      <button type="button" class="carrito-info-btn">Ubicación<br>para recoger 📍</button>
-    </div>
-
-    <div class="carrito-aviso">
-      ⚠️ El costo de envío depende de la zona de entrega
-    </div>
-
-    <form id="checkoutForm" class="carrito-checkout" novalidate>
-      <h2>Confirmar pedido</h2>
-      <div class="checkout-grid">
-        <label>
-          Nombre completo
-          <input id="checkoutNombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
-        </label>
-        <label>
-          Teléfono
-          <input id="checkoutTelefono" name="telefono" type="tel" autocomplete="tel" placeholder="55 1234 5678" required>
-        </label>
-      </div>
-
-      <label>
-        Dirección o punto de recolección
-        <textarea id="checkoutDireccion" name="direccion" rows="3" placeholder="Av. ... / Colonia ... / Punto de recolección" required></textarea>
-      </label>
-
-      <div class="checkout-grid">
-        <label>
-          Método de pago
-          <select id="checkoutPago" name="pago">
-            <option value="Transferencia">Transferencia</option>
-            <option value="Efectivo">Efectivo</option>
-            <option value="Pago contra entrega">Pago contra entrega</option>
-          </select>
-        </label>
-      </div>
-
-      <label>
-        Notas
-        <textarea id="checkoutNotas" name="notas" rows="2" placeholder="Detalles extras, horarios, color favorito, etc."></textarea>
-      </label>
-    </form>
-
-    <div class="carrito-subtotal carrito-subtotal--split">
-      <span>Subtotal<br>sin envío</span>
-      <span id="carritoSubtotal">$0</span>
-    </div>
-    <div class="carrito-subtotal carrito-subtotal--split">
-      <span>Envío</span>
-      <span id="carritoEnvio">$80</span>
-    </div>
-
-    <button class="btn-quiero-productos" id="btnFinalizar" type="button">Quiero estos productos</button>
-  </aside>
-
-  <div class="carrito-vacio-centro" id="carritoVacioCentro">
-    <div class="carrito-vacio-card">
-      <p class="carrito-vacio-texto">Tu carrito está vacío</p>
-      <a href="inicio.html" class="btn-volver-tienda">Volver a la tienda</a>
+  <!-- Modal de Login -->
+  <div id="loginOverlay" class="login-overlay" aria-hidden="true">
+    <div class="login-modal glass" role="dialog" aria-modal="true" aria-labelledby="loginModalTitulo">
+      <button id="btnCerrarLogin" class="login-close" aria-label="Cerrar">✕</button>
+      <img src="/assets/logo-mariru.webp" alt="Mariru Bazar" class="login-modal-logo login-modal-logo--center">
+      <h2 id="loginModalTitulo" class="login-modal-titulo">Iniciar sesión</h2>
+      <form id="formLoginModal" class="login-modal-form" novalidate autocomplete="on">
+        <div class="login-campo" hidden>
+          <label for="loginNombre">Nombre</label>
+          <input type="text" id="loginNombre" placeholder="Tu nombre" autocomplete="name" autocapitalize="words" maxlength="80">
+        </div>
+        <div class="login-campo">
+          <label for="loginUsuario">Correo electrónico</label>
+          <input type="email" id="loginUsuario" placeholder="ejemplo@correo.com"
+                 autocomplete="email" autocapitalize="off" autocorrect="off"
+                 spellcheck="false" required maxlength="254">
+        </div>
+        <div class="login-campo">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" placeholder="Tu contraseña"
+                 autocomplete="current-password" required maxlength="256">
+        </div>
+        <div class="login-campo" hidden>
+          <label for="loginConfirmarPass">Confirmar contraseña</label>
+          <input type="password" id="loginConfirmarPass" placeholder="Repite tu contraseña"
+                 autocomplete="new-password" maxlength="256">
+        </div>
+        <div class="login-campo login-campo-terminos" hidden>
+          <label class="login-checkbox-label">
+            <input type="checkbox" id="loginAceptaTerminos">
+            Acepto los <a href="terminos.html" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a>
+            y el <a href="privacidad.html" target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a>
+          </label>
+        </div>
+        <p id="loginMensajeError" class="login-error" role="alert"></p>
+        <button type="submit" id="btnSubmitLogin" class="btn-login-modal">Entrar</button>
+        <button type="button" id="btnResetPassword" class="btn-reset-password">¿Olvidaste tu contraseña?</button>
+        <div class="login-separador"><span>o continúa con</span></div>
+        <button type="button" id="btnLoginGoogle" class="btn-login-google">
+          <span aria-hidden="true">G</span> Continuar con Google
+        </button>
+        <p class="login-cambiar-modo">
+          <span id="loginTextoModo">¿Aún no tienes una cuenta?</span>
+          <button type="button" id="btnCambiarModoLogin">Crear una cuenta nueva</button>
+        </p>
+      </form>
     </div>
   </div>
 
+  <!-- CARRITO CON PRODUCTOS -->
+  <div class="carrito-wrapper">
+    <main class="carrito-main" id="carritoMain" style="display:none;">
+      <header class="pagina-encabezado">
+        <h1 class="pagina-titulo">Tu carrito</h1>
+        <p class="pagina-lead">Revisa tus productos antes de enviar tu pedido a Mariru.</p>
+      </header>
+      <div class="carrito-lista" id="carritoLista"></div>
+    </main>
+
+    <aside class="carrito-panel" id="carritoPanel" style="display:none;">
+      <h2 class="carrito-resumen-titulo">Resumen</h2>
+      <div class="carrito-aviso">
+        <strong>Solo en Hermosillo, Sonora</strong>
+        <span>La entrega se acuerda por WhatsApp.</span>
+      </div>
+
+      <div class="carrito-subtotal carrito-subtotal--split">
+        <span>Subtotal de productos</span>
+        <span id="carritoSubtotal">$0</span>
+      </div>
+      <div class="carrito-subtotal carrito-subtotal--split carrito-subtotal--total">
+        <span><strong>Total de productos</strong></span>
+        <span id="carritoTotal"><strong>$0</strong></span>
+      </div>
+      <p class="carrito-entrega-nota">No hay pagos en línea. Cualquier costo y detalle de entrega se confirma por WhatsApp antes de aceptar el pedido.</p>
+
+      <button class="btn-quiero-productos" id="btnFinalizar" type="button">Comprar por WhatsApp</button>
+    </aside>
+  </div>
+
+  <!-- CARRITO VACÍO -->
+  <div class="carrito-vacio-centro" id="carritoVacioCentro" style="display:flex;">
+    <div class="carrito-vacio-card">
+      <!-- Se llena dinámicamente por store.js -->
+    </div>
+  </div>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
   <script type="module" src="js/pages/store.js"></script>
-  <script type="module" src="js/ui/background-parallax.js"></script>
+  <script type="module" src="js/ui/login-modal.js"></script>
+  <script type="module" src="js/ui/sakura-petals.js"></script>
 </body>
 </html>

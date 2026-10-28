@@ -21,11 +21,8 @@ service cloud.firestore {
     }
 
     match /pedidos/{orderId} {
-      allow create: if
-        (!signedIn() &&
-          request.resource.data.usuario == null) ||
-        (signedIn() &&
-          request.resource.data.usuario.uid == request.auth.uid);
+      // Orders are created only by the trusted checkout function (Admin SDK).
+      allow create: if false;
 
       allow read: if
         (signedIn() && resource.data.usuario.uid == request.auth.uid) ||
@@ -40,7 +37,44 @@ service cloud.firestore {
         && request.resource.data.admin == false;
       allow update: if ownsUserDocument(userId)
         && request.resource.data.admin == resource.data.admin;
-      allow delete: if false;
+      // Cada cliente puede borrar su perfil; la cuenta administradora no
+      allow delete: if ownsUserDocument(userId)
+        && resource.data.get('admin', false) != true;
+
+      match /direcciones/{direccionId} {
+        function isValidText(value, maxLength, optional) {
+          return value is string
+            && value.size() <= maxLength
+            && (optional || value.size() > 0);
+        }
+
+        function isValidDireccion(data) {
+          return data.keys().hasOnly([
+              'alias', 'destinatario', 'calle', 'colonia', 'codigoPostal',
+              'telefono', 'referencias', 'predeterminada', 'creadoEn', 'actualizadoEn'
+            ])
+            && data.keys().hasAll([
+              'alias', 'destinatario', 'calle', 'colonia', 'codigoPostal',
+              'telefono', 'predeterminada'
+            ])
+            && isValidText(data.alias, 40, false)
+            && isValidText(data.destinatario, 80, false)
+            && isValidText(data.calle, 120, false)
+            && isValidText(data.colonia, 80, false)
+            && data.codigoPostal is string && data.codigoPostal.matches('[0-9]{5}')
+            && isValidText(data.telefono, 20, false)
+            && isValidText(data.get('referencias', ''), 200, true)
+            && data.predeterminada is bool;
+        }
+
+        allow read, delete: if ownsUserDocument(userId);
+        // Máximo 5 direcciones: solo se pueden crear con los identificadores d1–d5
+        allow create: if ownsUserDocument(userId)
+          && direccionId in ['d1', 'd2', 'd3', 'd4', 'd5']
+          && isValidDireccion(request.resource.data);
+        allow update: if ownsUserDocument(userId)
+          && isValidDireccion(request.resource.data);
+      }
     }
   }
 }

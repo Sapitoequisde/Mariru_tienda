@@ -13,7 +13,13 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@imgly/background-removal": "1.7.0",
     "firebase": "^12.19.0"
+  },
+  "overrides": {
+    "@firebase/firestore": {
+      "@grpc/grpc-js": "^1.13.6"
+    }
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

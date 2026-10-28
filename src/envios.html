@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariru Bazar - Entregas locales y devoluciones</title>
+  <meta name="description" content="Ventas y entregas coordinadas únicamente en Hermosillo, Sonora.">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/tienda.css">
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
+</head>
+<body class="page-legal tienda">
+
+  <header class="barra" id="navbarGlobal"></header>
+
+  <!-- Modal de Login -->
+  <div id="loginOverlay" class="login-overlay" aria-hidden="true">
+    <div class="login-modal glass" role="dialog" aria-modal="true" aria-labelledby="loginModalTitulo">
+      <button id="btnCerrarLogin" class="login-close" aria-label="Cerrar">✕</button>
+      <img src="/assets/logo-mariru.webp" alt="Mariru" class="login-modal-logo">
+      <h2 id="loginModalTitulo" class="login-modal-titulo">Iniciar sesión</h2>
+      <form id="formLoginModal" class="login-modal-form" novalidate>
+        <div class="login-campo" hidden>
+          <label for="loginNombre">Nombre</label>
+          <input type="text" id="loginNombre" placeholder="Tu nombre" autocomplete="name">
+        </div>
+        <div class="login-campo">
+          <label for="loginUsuario">Correo electrónico</label>
+          <input type="email" id="loginUsuario" placeholder="ejemplo@correo.com" autocomplete="email" required>
+        </div>
+        <div class="login-campo">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" placeholder="Tu contraseña" autocomplete="current-password" required>
+        </div>
+        <div class="login-campo" hidden>
+          <label for="loginConfirmarPass">Confirmar contraseña</label>
+          <input type="password" id="loginConfirmarPass" placeholder="Repite tu contraseña" autocomplete="new-password">
+        </div>
+        <div class="login-campo login-campo-terminos" hidden>
+          <label class="login-checkbox-label">
+            <input type="checkbox" id="loginAceptaTerminos">
+            Acepto los <a href="terminos.html" target="_blank">Términos y Condiciones</a> y el <a href="privacidad.html" target="_blank">Aviso de Privacidad</a>
+          </label>
+        </div>
+        <p id="loginMensajeError" class="login-error" role="alert"></p>
+        <button type="submit" class="btn-login-modal">Entrar</button>
+        <button type="button" id="btnResetPassword" class="btn-reset-password">¿Olvidaste tu contraseña?</button>
+        <div class="login-separador"><span>o continúa con</span></div>
+        <button type="button" id="btnLoginGoogle" class="btn-login-google">
+          <span aria-hidden="true">G</span> Continuar con Google
+        </button>
+        <p class="login-cambiar-modo">
+          <span id="loginTextoModo">¿Aún no tienes una cuenta?</span>
+          <button type="button" id="btnCambiarModoLogin">Crear una cuenta nueva</button>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <div class="legal-layout">
+    <nav class="legal-indice" id="legalIndice" aria-label="Contenido de la página"></nav>
+  <main class="legal-main">
+    <h1 class="legal-titulo">Entregas locales, devoluciones y cambios</h1>
+    <p class="legal-fecha">Última actualización: 6 de octubre de 2026</p>
+
+    <section class="legal-seccion">
+      <h2>1. Zona de venta y entrega</h2>
+      <p class="legal-destacado">Mariru Bazar vende únicamente en Hermosillo, Sonora, México. No se realizan envíos a otras ciudades ni por paquetería. El lugar, la modalidad y el horario de entrega o encuentro se acuerdan directamente por WhatsApp antes de confirmar el pedido.</p>
+      <p>Cualquier costo de entrega se informa y acuerda por WhatsApp antes de aceptar el pedido; los importes mostrados en el sitio corresponden únicamente a los productos.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>2. Formas de pago</h2>
+      <p>El pago se coordina fuera del sitio mediante transferencia, depósito o efectivo. El sitio no procesa pagos ni solicita datos bancarios. Para pagar en efectivo es necesario contactar a Mariru Bazar por WhatsApp y acordar los detalles.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>3. Confirmación del pedido</h2>
+      <p>Al confirmar la solicitud en el sitio, el sistema valida inventario y envía automáticamente el reporte al WhatsApp de Mariru mediante WhatsApp Business Platform. La solicitud no queda confirmada como venta hasta que Mariru Bazar confirme disponibilidad, entrega y pago. No se realizan cobros en el sitio.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>4. Devoluciones</h2>
+      <p class="legal-destacado">Puedes solicitar una devolución dentro de las 48 horas naturales siguientes a la entrega del pedido. La forma y coordinación para devolver o entregar el producto se acordará directamente con Mariru Bazar. La elegibilidad puede depender del tipo de producto; comunícate con nosotros antes de enviarlo para recibir instrucciones. No envíes artículos sin autorización previa.</p>
+      <p>Para iniciar una solicitud, escribe a <a href="mailto:Mariru_bazar@gmail.com">Mariru_bazar@gmail.com</a> o comunícate por los medios indicados en la página de contacto.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>5. Reembolsos</h2>
+      <p>Cuando una devolución sea aprobada, la forma y el plazo del reembolso se acordarán directamente con Mariru Bazar, de acuerdo con el pago recibido y la legislación aplicable.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>6. Cambios</h2>
+      <p class="legal-destacado">Puedes solicitar un cambio dentro de los 7 días naturales siguientes a la entrega del pedido. La posibilidad de realizarlo depende del tipo de producto y de la disponibilidad. Comunícate con Mariru Bazar para confirmar si aplica y coordinar la entrega; no envíes el producto sin recibir instrucciones.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>7. Contacto</h2>
+      <p>Para cualquier duda sobre envíos, devoluciones o reembolsos, escríbenos a <a href="mailto:Mariru_bazar@gmail.com">Mariru_bazar@gmail.com</a>.</p>
+    </section>
+  </main>
+  </div>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script type="module" src="js/pages/store.js"></script>
+  <script type="module" src="js/ui/login-modal.js"></script>
+  <script type="module" src="js/ui/sakura-petals.js"></script>
+  <script type="module" src="js/ui/legal-toc.js"></script>
+</body>
+</html>

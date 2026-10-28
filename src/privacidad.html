@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariru Bazar - Aviso de Privacidad</title>
+  <meta name="description" content="Aviso de privacidad de Mariru Bazar conforme a la legislación mexicana de protección de datos personales.">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/tienda.css">
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
+</head>
+<body class="page-legal tienda">
+
+  <header class="barra" id="navbarGlobal"></header>
+
+  <!-- Modal de Login -->
+  <div id="loginOverlay" class="login-overlay" aria-hidden="true">
+    <div class="login-modal glass" role="dialog" aria-modal="true" aria-labelledby="loginModalTitulo">
+      <button id="btnCerrarLogin" class="login-close" aria-label="Cerrar">✕</button>
+      <img src="/assets/logo-mariru.webp" alt="Mariru" class="login-modal-logo">
+      <h2 id="loginModalTitulo" class="login-modal-titulo">Iniciar sesión</h2>
+      <form id="formLoginModal" class="login-modal-form" novalidate>
+        <div class="login-campo" hidden>
+          <label for="loginNombre">Nombre</label>
+          <input type="text" id="loginNombre" placeholder="Tu nombre" autocomplete="name">
+        </div>
+        <div class="login-campo">
+          <label for="loginUsuario">Correo electrónico</label>
+          <input type="email" id="loginUsuario" placeholder="ejemplo@correo.com" autocomplete="email" required>
+        </div>
+        <div class="login-campo">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" placeholder="Tu contraseña" autocomplete="current-password" required>
+        </div>
+        <div class="login-campo" hidden>
+          <label for="loginConfirmarPass">Confirmar contraseña</label>
+          <input type="password" id="loginConfirmarPass" placeholder="Repite tu contraseña" autocomplete="new-password">
+        </div>
+        <div class="login-campo login-campo-terminos" hidden>
+          <label class="login-checkbox-label">
+            <input type="checkbox" id="loginAceptaTerminos">
+            Acepto los <a href="terminos.html" target="_blank">Términos y Condiciones</a> y el <a href="privacidad.html" target="_blank">Aviso de Privacidad</a>
+          </label>
+        </div>
+        <p id="loginMensajeError" class="login-error" role="alert"></p>
+        <button type="submit" class="btn-login-modal">Entrar</button>
+        <button type="button" id="btnResetPassword" class="btn-reset-password">¿Olvidaste tu contraseña?</button>
+        <div class="login-separador"><span>o continúa con</span></div>
+        <button type="button" id="btnLoginGoogle" class="btn-login-google">
+          <span aria-hidden="true">G</span> Continuar con Google
+        </button>
+        <p class="login-cambiar-modo">
+          <span id="loginTextoModo">¿Aún no tienes una cuenta?</span>
+          <button type="button" id="btnCambiarModoLogin">Crear una cuenta nueva</button>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <div class="legal-layout">
+    <nav class="legal-indice" id="legalIndice" aria-label="Contenido de la página"></nav>
+  <main class="legal-main">
+    <h1 class="legal-titulo">Aviso de Privacidad</h1>
+    <p class="legal-fecha">Última actualización: 25 de octubre de 2026</p>
+
+    <section class="legal-seccion">
+      <h2>1. Responsable del tratamiento</h2>
+      <p>Uziel Aaron Marquez Sanchez es responsable del tratamiento de los datos personales que proporcione al utilizar Mariru Bazar. El negocio opera exclusivamente en línea desde Hermosillo, Sonora, México, y no cuenta con un establecimiento físico de atención al público. Para consultas relacionadas con sus datos personales, escriba a <a href="mailto:Mariru_bazar@gmail.com">Mariru_bazar@gmail.com</a>.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>2. Datos personales que se recolectan</h2>
+      <p>Recopilamos los siguientes datos personales:</p>
+      <ul>
+        <li><strong>Nombre y teléfono</strong> — proporcionados al solicitar un pedido.</li>
+        <li><strong>Datos del pedido</strong> — productos, cantidades, precios, forma de pago elegida, punto de entrega y notas proporcionados para tramitar la solicitud.</li>
+        <li><strong>Correo electrónico</strong> — utilizado para la creación de cuenta y comunicaciones.</li>
+        <li><strong>Fotografía de perfil</strong> — proporcionada al iniciar sesión con Google.</li>
+        <li><strong>Historial de pedidos</strong> — los pedidos nuevos se guardan en Firestore para validar inventario y registrar el resultado del envío a WhatsApp. Si haces el pedido con tu sesión iniciada, se asocia a tu cuenta (identificador y correo) para que puedas consultarlo en «Mis pedidos»; si compras sin cuenta, no se asocia a ninguna.</li>
+        <li><strong>Datos de sesión</strong> — información técnica de autenticación procesada por Firebase/Google.</li>
+      </ul>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>3. Finalidades del tratamiento</h2>
+      <p>Los datos personales se utilizan para:</p>
+      <ul>
+        <li>Crear y administrar su cuenta de usuario.</li>
+        <li>Validar inventario y enviar a Mariru por WhatsApp la solicitud de pedido que el comprador confirmó en el sitio, para coordinar disponibilidad, entrega y pago.</li>
+        <li>Mejorar la experiencia de navegación y funcionalidad del sitio.</li>
+        <li>Cumplir con obligaciones legales aplicables.</li>
+      </ul>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>4. Envío del pedido por WhatsApp</h2>
+      <p>Al confirmar el pedido en el sitio, el backend de Mariru Bazar valida el inventario, registra la solicitud y envía sus datos al WhatsApp de la tienda mediante WhatsApp Business Platform (Meta). Para ello se transmiten el nombre y teléfono del comprador, punto de entrega, forma de pago elegida, productos y notas. Meta procesa el mensaje conforme a sus propias políticas. El sitio no recibe ni procesa pagos.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>5. Conservación de datos</h2>
+      <p>Los datos de pedidos se conservan en Firestore mientras sean necesarios para coordinar y administrar la solicitud o cumplir obligaciones aplicables. Puede solicitar acceso, rectificación, cancelación u oposición conforme a la sección de derechos ARCO.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>6. Derechos ARCO</h2>
+      <p class="legal-destacado">Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse al tratamiento de sus datos personales (derechos ARCO). Para ejercer estos derechos, envíe su solicitud a <strong><a href="mailto:Mariru_bazar@gmail.com">Mariru_bazar@gmail.com</a></strong> indicando:</p>
+      <ul>
+        <li>Nombre completo y correo electrónico de su cuenta.</li>
+        <li>Descripción clara del derecho que desea ejercer.</li>
+        <li>Cualquier documento que acredite su identidad.</li>
+      </ul>
+      <p>Responderemos a su solicitud en un plazo máximo de 20 días hábiles, conforme a la LFPDPPP.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>7. Proveedores que tratan datos</h2>
+      <p>Utilizamos los siguientes servicios de terceros para el funcionamiento del sitio:</p>
+      <ul>
+        <li><strong>Firebase Authentication (Google)</strong> — gestión de cuentas y autenticación de usuarios.</li>
+        <li><strong>Cloud Firestore (Google)</strong> — almacenamiento de datos de usuarios y pedidos.</li>
+        <li><strong>Firebase Storage (Google)</strong> — almacenamiento de imágenes de productos.</li>
+        <li><strong>WhatsApp Business Platform (Meta)</strong> — transmisión del reporte al WhatsApp de Mariru tras la confirmación del pedido.</li>
+      </ul>
+      <p>Estos proveedores están sujetos a sus propias políticas de privacidad y cumplen con estándares internacionales de seguridad de datos.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>8. Modificaciones al aviso</h2>
+      <p>Mariru Bazar podrá actualizar este Aviso de Privacidad cuando sea necesario. Las modificaciones se publicarán en esta página indicando su fecha de actualización.</p>
+    </section>
+
+    <section class="legal-seccion">
+      <h2>9. Contacto</h2>
+      <p>Para dudas o comentarios sobre este Aviso de Privacidad, comuníquese a <a href="mailto:Mariru_bazar@gmail.com">Mariru_bazar@gmail.com</a>.</p>
+    </section>
+  </main>
+  </div>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script type="module" src="js/pages/store.js"></script>
+  <script type="module" src="js/ui/login-modal.js"></script>
+  <script type="module" src="js/ui/sakura-petals.js"></script>
+  <script type="module" src="js/ui/legal-toc.js"></script>
+</body>
+</html>

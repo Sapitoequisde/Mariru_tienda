@@ -1,6 +1,16 @@
 import { auth, db } from "../services/firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { inyectarNavbar, inicializarNavbarAuth } from "../ui/navbar.js";
+import { inyectarFooter } from "../ui/footer.js";
+
+inyectarNavbar();
+inicializarNavbarAuth();
+inyectarFooter();
+
+document.getElementById("btnAbrirLogin")?.addEventListener("click", () => {
+  window.location.href = auth.currentUser ? "cuenta.html" : "inicio.html?login=1";
+});
 
 const estado = document.getElementById("pedidosEstado");
 const lista = document.getElementById("pedidosLista");
@@ -12,6 +22,18 @@ function escapar(valor) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+// Estado guardado por la Cloud Function → texto para el cliente y estilo
+const ESTADOS_PEDIDO = {
+  "Enviando a WhatsApp": { texto: "Enviando", clase: "pendiente" },
+  "Enviado a WhatsApp": { texto: "Enviado a Mariru", clase: "ok" },
+  "Error de envío a WhatsApp": { texto: "No se pudo enviar", clase: "error" },
+  Registrado: { texto: "Registrado", clase: "ok" },
+};
+
+function estadoPedido(estado) {
+  return ESTADOS_PEDIDO[estado] || { texto: estado || "Registrado", clase: "ok" };
 }
 
 function formatoFecha(fecha) {
@@ -61,7 +83,7 @@ function mostrarPedidos(pedidos) {
             <span class="pedido-label">Pedido #${numero}</span>
             <strong>${escapar(formatoFecha(pedido.fecha))}</strong>
           </div>
-          <span class="pedido-estado">Registrado</span>
+          <span class="pedido-estado pedido-estado--${estadoPedido(pedido.estado).clase}">${escapar(estadoPedido(pedido.estado).texto)}</span>
         </header>
         <div class="pedido-card-items">
           ${items.map(item => `
@@ -73,7 +95,7 @@ function mostrarPedidos(pedidos) {
         </div>
         <footer class="pedido-card-footer">
           <span>${cantidad} ${cantidad === 1 ? "artículo" : "artículos"}</span>
-          <strong>Total: $${Number(pedido.subtotal || 0).toLocaleString("es-MX")}</strong>
+          <strong>Total: $${Number(pedido.total ?? pedido.subtotal ?? 0).toLocaleString("es-MX")}</strong>
         </footer>
       </article>
     `;

@@ -2,29 +2,63 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mariru Bazar - Contáctame</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariru Bazar - Funcionamiento</title>
+  <meta name="description" content="Conoce cómo comprar en Mariru Bazar, las formas de pago, entregas locales, cambios y devoluciones.">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/tienda.css">
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
 </head>
-<body class="page-sobremi">
+<body class="page-sobremi tienda">
 
-  <header class="navbar">
-    <a href="inicio.html" class="nav-logo-link">
-      <img src="/assets/logo-completo-transparente.png" alt="Mariru" class="nav-logo">
-    </a>
-    <nav class="nav-links">
-      <a href="inicio.html">Inicio</a>
-      <a href="categorias.html">Mis pedidos</a>
-      <a href="sobre-mi.html" class="active">Contáctame</a>
-    </nav>
-    <div class="navbar-icons">
-  <a href="carrito.html" class="cart-icon">🛒</a>
-  <a href="inicio.html?login=1" class="admin-icon" title="Iniciar sesión o crear perfil">👤</a>
-</div>
-  </header>
+  <header class="barra" id="navbarGlobal"></header>
 
-  <a href="javascript:history.back()" class="btn-volver-seccion" aria-label="Regresar a la página anterior">↩ Volver</a>
+  <!-- Modal de Login -->
+  <div id="loginOverlay" class="login-overlay" aria-hidden="true">
+    <div class="login-modal glass" role="dialog" aria-modal="true" aria-labelledby="loginModalTitulo">
+      <button id="btnCerrarLogin" class="login-close" aria-label="Cerrar">✕</button>
+      <img src="/assets/logo-mariru.webp" alt="Mariru Bazar" class="login-modal-logo login-modal-logo--center">
+      <h2 id="loginModalTitulo" class="login-modal-titulo">Iniciar sesión</h2>
+      <form id="formLoginModal" class="login-modal-form" novalidate autocomplete="on">
+        <div class="login-campo" hidden>
+          <label for="loginNombre">Nombre</label>
+          <input type="text" id="loginNombre" placeholder="Tu nombre" autocomplete="name" maxlength="80">
+        </div>
+        <div class="login-campo">
+          <label for="loginUsuario">Correo electrónico</label>
+          <input type="email" id="loginUsuario" placeholder="ejemplo@correo.com" autocomplete="email" autocapitalize="off" autocorrect="off" spellcheck="false" required maxlength="254">
+        </div>
+        <div class="login-campo">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" placeholder="Tu contraseña" autocomplete="current-password" required maxlength="256">
+        </div>
+        <div class="login-campo" hidden>
+          <label for="loginConfirmarPass">Confirmar contraseña</label>
+          <input type="password" id="loginConfirmarPass" placeholder="Repite tu contraseña" autocomplete="new-password" maxlength="256">
+        </div>
+        <div class="login-campo login-campo-terminos" hidden>
+          <label class="login-checkbox-label">
+            <input type="checkbox" id="loginAceptaTerminos">
+            Acepto los <a href="terminos.html" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a> y el <a href="privacidad.html" target="_blank" rel="noopener noreferrer">Aviso de Privacidad</a>
+          </label>
+        </div>
+        <p id="loginMensajeError" class="login-error" role="alert"></p>
+        <button type="submit" id="btnSubmitLogin" class="btn-login-modal">Entrar</button>
+        <button type="button" id="btnResetPassword" class="btn-reset-password">¿Olvidaste tu contraseña?</button>
+        <div class="login-separador"><span>o continúa con</span></div>
+        <button type="button" id="btnLoginGoogle" class="btn-login-google">
+          <span aria-hidden="true">G</span> Continuar con Google
+        </button>
+        <p class="login-cambiar-modo">
+          <span id="loginTextoModo">¿Aún no tienes una cuenta?</span>
+          <button type="button" id="btnCambiarModoLogin">Crear una cuenta nueva</button>
+        </p>
+      </form>
+    </div>
+  </div>
 
   <div class="cat-yarn-game" aria-hidden="true">
     <span id="yarnBall" class="yarn-ball">
@@ -40,34 +74,105 @@
     </span>
   </div>
 
-  <main class="sobremi-main">
-    <section class="sobremi-presentacion" aria-labelledby="sobre-mi-titulo">
-      <span class="sobremi-etiqueta">♡ Conoce Mariru Bazar</span>
-      <h1 id="sobre-mi-titulo" class="sobremi-titulo">Contáctame</h1>
-      <div class="sobremi-texto">
-        <p>
-          Este espacio es para compartir la historia de Mariru Bazar, una tienda
-          creada con cariño para encontrar detalles bonitos y especiales.
-        </p>
-        <p>
-          Cada producto es elegido pensando en crear momentos únicos y llenar
-          tus días de un poquito más de color.
-        </p>
+  <main class="func-main">
+
+    <!-- 1. Lo más importante: cómo funciona y qué hay que saber antes de comprar -->
+    <section class="func-hero" aria-labelledby="sobre-mi-titulo">
+      <div class="func-hero-texto">
+        <h1 id="sobre-mi-titulo" class="func-titulo">Así se compra en Mariru Bazar</h1>
+        <p class="func-lead">Eliges tus productos, envías tu solicitud y Mariru te confirma disponibilidad, entrega y pago por WhatsApp.</p>
       </div>
+
+      <ul class="func-claves" aria-label="Antes de comprar">
+        <li class="func-clave">
+          <strong>Solo en Hermosillo, Sonora</strong>
+          <span>No hacemos envíos por paquetería a otras ciudades.</span>
+        </li>
+        <li class="func-clave">
+          <strong>Esta página no cobra</strong>
+          <span>Pagas directamente a Mariru, después de acordarlo con ella.</span>
+        </li>
+        <li class="func-clave func-clave-alerta">
+          <strong>Tu pedido aún no es una venta</strong>
+          <span>La compra queda confirmada solo cuando Mariru te responde.</span>
+        </li>
+      </ul>
     </section>
 
-    <section class="sobremi-contacto-panel" aria-labelledby="contacto-titulo">
-      <span class="sobremi-contacto-kicker">Estoy para ayudarte</span>
-      <h2 id="contacto-titulo">Encuéntrame</h2>
-      <div class="sobremi-contacto">
-        <a href="https://wa.me/526622380735" target="_blank" rel="noreferrer" class="contacto-item" aria-label="Contactar por WhatsApp">
+    <!-- 2. El proceso -->
+    <section class="func-seccion" aria-labelledby="compra-titulo">
+      <h2 id="compra-titulo" class="func-seccion-titulo">Tu compra en 4 pasos</h2>
+      <ol class="func-pasos">
+        <li class="func-paso">
+          <span class="func-paso-numero" aria-hidden="true">1</span>
+          <h3>Elige tus productos</h3>
+          <p>Compra directo desde la página de un producto o agrega varios al carrito.</p>
+        </li>
+        <li class="func-paso">
+          <span class="func-paso-numero" aria-hidden="true">2</span>
+          <h3>Envía tu solicitud</h3>
+          <p>Al presionar “Comprar”, escribe tus datos de contacto, elige una forma de pago y agrega el punto de entrega o cualquier nota.</p>
+        </li>
+        <li class="func-paso">
+          <span class="func-paso-numero" aria-hidden="true">3</span>
+          <h3>Espera la confirmación</h3>
+          <p>Mariru recibe tu pedido con tus datos, productos, cantidades y forma de pago, y te confirma disponibilidad, entrega y pago por WhatsApp.</p>
+          <p class="func-paso-aviso">Si al enviar aparece un error, contáctanos antes de volver a intentarlo.</p>
+        </li>
+        <li class="func-paso">
+          <span class="func-paso-numero" aria-hidden="true">4</span>
+          <h3>Acuerda entrega y pago</h3>
+          <p>El lugar, el horario y cualquier costo de entrega se acuerdan con Mariru antes de cerrar la compra.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 3. Detalles: pago y devoluciones -->
+    <div class="func-detalles">
+      <section class="func-bloque" aria-labelledby="pago-titulo">
+        <h2 id="pago-titulo" class="func-seccion-titulo">Formas de pago</h2>
+        <ul class="func-pagos">
+          <li><strong>Transferencia</strong><span>Se coordina con Mariru cuando confirma tu pedido.</span></li>
+          <li><strong>Depósito</strong><span>Se coordina con Mariru cuando confirma tu pedido.</span></li>
+          <li class="func-pago-destacado"><strong>Efectivo</strong><span>Escríbele por WhatsApp para acordar cómo y cuándo pagar.</span></li>
+        </ul>
+        <p class="func-nota">El sitio no procesa pagos ni te pedirá datos bancarios.</p>
+      </section>
+
+      <section class="func-bloque" aria-labelledby="devoluciones-titulo">
+        <h2 id="devoluciones-titulo" class="func-seccion-titulo">Cambios y devoluciones</h2>
+        <div class="func-plazos">
+          <div class="func-plazo">
+            <span class="func-plazo-cifra">48 h</span>
+            <span class="func-plazo-texto">para solicitar una devolución después de la entrega</span>
+          </div>
+          <div class="func-plazo">
+            <span class="func-plazo-cifra">7 días</span>
+            <span class="func-plazo-texto">para solicitar un cambio, sujeto a disponibilidad</span>
+          </div>
+        </div>
+        <p class="func-importante">Escríbenos antes de entregar o enviar un producto: sin autorización no podemos recibirlo.</p>
+        <p class="func-nota">Los plazos son en días y horas naturales. Que proceda depende del tipo de producto. Si se aprueba un reembolso, su forma y plazo se acuerdan con Mariru según el pago recibido y la legislación aplicable.</p>
+        <a class="func-enlace" href="envios.html">Leer la política completa de entregas, cambios y devoluciones</a>
+      </section>
+    </div>
+
+    <!-- 4. Contacto -->
+    <section class="func-contacto" aria-labelledby="contacto-titulo">
+      <div class="func-contacto-texto">
+        <h2 id="contacto-titulo" class="func-seccion-titulo">¿Tienes dudas?</h2>
+        <p>Escríbele a Mariru: ella te ayuda con tus pedidos, los pagos en efectivo y la entrega.</p>
+      </div>
+      <div class="sobremi-contacto func-contacto-opciones">
+        <a href="https://wa.me/526622380735" target="_blank" rel="noreferrer" class="contacto-item func-contacto-principal" aria-label="Escribir a Mariru por WhatsApp">
           <span class="contacto-icono contacto-icono-whatsapp" aria-hidden="true">
             <svg viewBox="0 0 24 24" role="img">
               <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.3-6.1-3.5-8.3Zm-8.3 18.1h-.1a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.9 1 1-3.8-.3-.4a9.8 9.8 0 1 1 8.7 4.8Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2c-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.8-1.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.2c.2.2 2.2 3.4 5.4 4.8 2 .9 2.8 1 3.8.8.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/>
             </svg>
           </span>
           <span class="contacto-contenido">
-            <strong>WhatsApp</strong>
+            <strong>Escribir por WhatsApp</strong>
+            <small>+52 662 238 0735</small>
           </span>
         </a>
 
@@ -83,7 +188,7 @@
           </span>
         </a>
 
-        <a href="https://www.instagram.com/mariru.bazarr?stkn=MTd1YnR6YmZyeWp0NQ==" target="_blank" rel="noreferrer" class="contacto-item">
+        <a href="https://www.instagram.com/mariru.bazarr" target="_blank" rel="noreferrer" class="contacto-item">
           <span class="contacto-icono contacto-icono-instagram" aria-hidden="true">
             <svg viewBox="0 0 24 24" role="img">
               <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5ZM17.5 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.5 6Z"/>
@@ -91,7 +196,7 @@
           </span>
           <span class="contacto-contenido">
             <strong>Instagram</strong>
-            <small>@mariru_bazar</small>
+            <small>@mariru.bazarr</small>
           </span>
         </a>
       </div>
@@ -99,8 +204,11 @@
 
   </main>
 
+  <footer class="site-footer" id="siteFooter"></footer>
+
   <script type="module" src="js/pages/store.js"></script>
-  <script type="module" src="js/ui/background-parallax.js"></script>
+  <script type="module" src="js/ui/login-modal.js"></script>
+  <script type="module" src="js/ui/sakura-petals.js"></script>
   <script type="module" src="js/ui/cat-yarn-game.js"></script>
 </body>
 </html>

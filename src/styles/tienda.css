@@ -1,0 +1,268 @@
+/* Lenguaje compartido con la ficha: contenido abierto, rosa discreto y sin vidrio.
+   Las capas, transparencias y animaciones de la barra se conservan en style.css. */
+html body.tienda {
+  --tienda-linea: rgba(118, 89, 104, .16);
+  --tienda-radio: 12px;
+}
+
+html body.tienda :is(.pagina-titulo, .func-titulo, .legal-titulo) {
+  max-width: 26ch;
+  color: var(--plum);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 600;
+  letter-spacing: -.025em;
+  line-height: 1.15;
+}
+html body.tienda :is(.pagina-lead, .func-lead) {
+  max-width: 56ch;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+html body.tienda :is(.func-seccion-titulo, .legal-seccion h2, .cuenta-tarjeta h2, .carrito-resumen-titulo, .contacto-dato h2) {
+  color: var(--plum);
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 500;
+  letter-spacing: -.015em;
+  line-height: 1.3;
+}
+html body.tienda :is(.func-main, .contacto-main, .cuenta-main, .pedidos-main, .legal-layout) {
+  padding-block: clamp(28px, 4vw, 56px) 64px;
+}
+
+/* Superficies de contenido: el fondo de la tienda queda a la vista. */
+html body.tienda :is(.product-card, .filtros-panel, .func-clave, .func-bloque,
+  .func-contacto, .contacto-item, .contacto-dato, .legal-main, .legal-seccion,
+  .cuenta-tarjeta, .direccion-card, .pedidos-estado, .pedido-card,
+  .carrito-item, .carrito-panel, .carrito-subtotal) {
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Catálogo: la foto y el nombre llevan el protagonismo. */
+html body.tienda .product-card:hover { transform: none; box-shadow: none; }
+html body.tienda .product-image { border-radius: var(--tienda-radio); background: rgba(255, 255, 255, .3); }
+html body.tienda .product-image img { object-fit: contain; }
+html body.tienda .product-content { padding: 14px 2px 8px; gap: 6px; }
+html body.tienda .product-name { color: var(--plum); font-size: 15px; font-weight: 500; }
+html body.tienda .product-price { color: var(--plum); font-size: 15px; font-weight: 600; }
+html body.tienda .product-stock { color: var(--text-muted); font-size: 11px; font-weight: 400; }
+html body.tienda .product-category { border: 0; background: rgba(255, 255, 255, .92); color: var(--text-muted); font-weight: 400; }
+html body.tienda .filtros-panel { padding: 8px 20px 24px 0; }
+html body.tienda :is(.filtros-titulo, .filtro-label) { font-weight: 500; }
+html body.tienda :is(.btn-limpiar-filtros, .catalogo-conteo, .catalogo-orden, .filtro-toggle-label) { font-weight: 400; }
+
+/* Funcionamiento: se conserva la secuencia y se reducen los bloques decorativos. */
+html body.tienda .func-clave { padding: 14px 0; border-bottom: 1px solid var(--tienda-linea); }
+html body.tienda .func-clave strong { color: var(--plum); font-size: 15px; font-weight: 500; }
+html body.tienda .func-clave span { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+html body.tienda .func-bloque { padding: 24px 0 0; border-top: 1px solid var(--tienda-linea); }
+html body.tienda .func-pasos::before { height: 1px; background: var(--tienda-linea); }
+html body.tienda .func-paso-numero { background: #f9edf2; color: var(--rose-deep); box-shadow: none; font-size: 18px; font-weight: 500; }
+html body.tienda .func-paso h3 { font-size: 17px; font-weight: 500; }
+html body.tienda :is(.func-paso-aviso, .func-importante, .legal-destacado, .carrito-aviso) {
+  padding: 8px 0 8px 12px;
+  border: 0;
+  border-left: 2px solid var(--rose);
+  border-radius: 0;
+  background: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 400;
+}
+html body.tienda .func-paso .func-paso-aviso { background: none; font-weight: 400; }
+html body.tienda .func-contacto { padding: 28px 0 0; border-top: 1px solid var(--tienda-linea); }
+html body.tienda .func-contacto .func-seccion-titulo { color: var(--plum); }
+html body.tienda .func-contacto-texto p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+html body.tienda .contacto-item { padding: 12px 0; color: var(--plum); }
+html body.tienda :is(.contacto-item:hover, .func-contacto-principal:hover) { background: none; box-shadow: none; transform: none; }
+html body.tienda .contacto-item strong { color: var(--plum); font-size: 15px; font-weight: 500; }
+html body.tienda .contacto-item small { color: var(--text-muted); font-size: 13px; font-weight: 400; }
+html body.tienda .contacto-icono { width: 32px; height: 32px; background: none; box-shadow: none; }
+html body.tienda .contacto-icono svg { width: 22px; height: 22px; }
+html body.tienda.page-sobremi .func-contacto :is(.contacto-item, .contacto-item:hover, .contacto-icono) {
+  border: 0;
+  background: none;
+  color: var(--plum);
+  box-shadow: none;
+}
+html body.tienda.page-sobremi .func-contacto .contacto-contenido strong { color: var(--plum); font-weight: 500; }
+html body.tienda.page-sobremi .func-contacto .contacto-contenido small { color: var(--text-muted); opacity: 1; }
+html body.tienda .func-plazo-cifra { font-size: 28px; font-weight: 500; }
+html body.tienda :is(.func-pagos strong, .func-enlace) { font-weight: 500; }
+html body.tienda .func-pago-destacado { border-left-width: 2px; border-radius: 0; background: none; }
+html body.tienda :is(.func-plazo-texto, .func-pagos span) { color: var(--text-muted); font-weight: 400; }
+
+/* Contacto: una acción principal clara, datos secundarios discretos. */
+html body.tienda .contacto-whatsapp { border-radius: var(--tienda-radio); background: var(--plum); box-shadow: none; padding: 20px; }
+html body.tienda .contacto-whatsapp:hover { background: #513542; transform: none; }
+html body.tienda .contacto-whatsapp strong { font-size: 17px; font-weight: 500; }
+html body.tienda .contacto-whatsapp small { font-size: 13px; font-weight: 400; }
+html body.tienda .contacto-whatsapp-icono { width: 36px; height: 36px; background: none; }
+html body.tienda .contacto-dato { padding: 20px 0; border-top: 1px solid var(--tienda-linea); }
+html body.tienda .contacto-dato .contacto-dato-valor { font-size: 16px; font-weight: 500; }
+
+/* Carrito, cuenta y pedidos: grupos delimitados por espacio y líneas finas. */
+html body.tienda .carrito-panel { padding: 0 0 0 24px; border-left: 1px solid var(--tienda-linea); }
+html body.tienda .carrito-item { padding: 20px 0; border-bottom: 1px solid var(--tienda-linea); }
+html body.tienda .carrito-item-nombre { color: var(--plum); font-weight: 500; }
+html body.tienda .carrito-aviso strong { color: var(--plum); font-size: 14px; font-weight: 500; }
+html body.tienda .carrito-aviso span { color: var(--text-muted); font-size: 13px; font-weight: 400; }
+html body.tienda .carrito-subtotal { padding-inline: 0; }
+html body.tienda .cuenta-tarjeta { padding: 24px 0; border-top: 1px solid var(--tienda-linea); }
+html body.tienda .cuenta-tarjeta h3 { font-size: 16px; font-weight: 500; }
+html body.tienda .cuenta-peligro { border-top-color: #c98494; }
+html body.tienda .pedido-card { padding: 24px 0; border-top: 1px solid var(--tienda-linea); }
+html body.tienda .pedidos-estado { padding: 24px 0; }
+html body.tienda :is(.pedido-card-header strong, .pedido-card-footer strong) { font-weight: 500; }
+html body.tienda :is(.btn-quiero-productos, .btn-finalizar, .btn-ver-resultados, .cuenta-btn) {
+  border-radius: var(--tienda-radio);
+  background: var(--plum);
+  color: #fff;
+  box-shadow: none;
+  font-weight: 500;
+}
+html body.tienda :is(.btn-quiero-productos, .btn-finalizar, .btn-ver-resultados, .cuenta-btn):hover { background: #513542; box-shadow: none; }
+html body.tienda .cuenta-btn-secundario { border: 1px solid var(--tienda-linea); background: transparent; color: var(--plum); }
+html body.tienda .cuenta-btn-secundario:hover { background: #f9edf2; }
+html body.tienda .cuenta-btn-peligro { background: #a52e50; color: #fff; }
+html body.tienda .cuenta-btn-peligro:hover { background: #87233f; }
+
+/* Lectura y pie: mismas jerarquías, sin paneles superpuestos. */
+html body.tienda .legal-main { padding: 0; }
+html body.tienda .legal-main::before { content: none; }
+html body.tienda .legal-titulo { margin-inline: 0; text-align: left; }
+html body.tienda .legal-fecha { margin: 16px 0 28px; padding: 0; border: 0; border-radius: 0; background: none; color: var(--text-muted); font-size: 12px; font-weight: 400; text-align: left; }
+html body.tienda .legal-seccion { padding: 24px 0; margin-top: 0; border-top: 1px solid var(--tienda-linea); }
+html body.tienda .legal-seccion :is(p, li) { font-size: 15px; font-weight: 400; line-height: 1.7; }
+html body.tienda .legal-seccion a { color: var(--rose-deep); font-weight: 500; }
+html body.tienda :is(.legal-indice-titulo, .legal-indice a, .legal-indice a::before) { font-weight: 500; }
+html body.tienda .legal-seccion .legal-destacado { border-left-width: 2px; background: none; font-weight: 400; }
+html body.tienda .site-footer { box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(255, 255, 255, .55); }
+html body.tienda .footer-grupo-titulo { font-size: 15px; font-weight: 500; }
+html body.tienda .footer-grupo a { font-size: 14px; font-weight: 400; }
+
+@media (max-width: 900px) {
+  html body.tienda .carrito-panel { padding: 24px 0 0; border-left: 0; border-top: 1px solid var(--tienda-linea); }
+}
+@media (max-width: 768px) {
+  /* El cajón móvil sigue siendo opaco para que los productos no dificulten su lectura. */
+  html body.tienda .filtros-panel { background: #fff; padding: 24px 20px; }
+  html body.tienda .func-contacto { gap: 20px; }
+}
+
+/* El catálogo ocupa todo el ancho; los filtros aparecen solo al solicitarlos. */
+html body.tienda.page-inicio .inicio-main { position: relative; }
+html body.tienda.page-inicio .inicio-layout {
+  display: block;
+  width: min(1440px, calc(100% - 2 * clamp(16px, 3vw, 40px)));
+  margin: 0 auto;
+  padding: 0 0 64px;
+}
+html body.tienda.page-inicio .inicio-catalogo { padding: 0; }
+html body.tienda.page-inicio .inicio-mobile-bar {
+  display: flex;
+  width: min(1440px, calc(100% - 2 * clamp(16px, 3vw, 40px)));
+  margin: 0 auto;
+  padding: 24px 0 16px;
+}
+html body.tienda .btn-toggle-filtros {
+  display: inline-flex;
+  border: 1px solid var(--tienda-linea);
+  border-radius: var(--tienda-radio);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: var(--plum);
+  font-weight: 500;
+}
+html body.tienda .btn-toggle-filtros:hover { background: #f9edf2; }
+html body.tienda.page-inicio .filtros-panel {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  width: min(360px, calc(100vw - 24px));
+  height: 100svh;
+  max-height: 100svh;
+  margin: 0;
+  padding: 64px 24px 0;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  overflow-y: auto;
+  visibility: hidden;
+  transform: translateX(-110%);
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1), visibility 0s .35s;
+}
+html body.tienda.page-inicio .filtros-panel.filtros-abiertos {
+  visibility: visible;
+  transform: translateX(0);
+  transition-delay: 0s;
+}
+html body.tienda.page-inicio .filtros-header { padding-right: 0; }
+html body.tienda.page-inicio .btn-cerrar-filtros {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+html body.tienda.page-inicio .filtros-footer {
+  position: sticky;
+  bottom: 0;
+  display: block;
+  flex-shrink: 0;
+  margin: auto -24px 0;
+  padding: 16px 24px max(16px, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--tienda-linea);
+  background: #fff;
+}
+html body.tienda.page-inicio .filtros-overlay {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(39, 25, 32, .25);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: opacity .35s ease, visibility 0s .35s;
+}
+html body.tienda.page-inicio .filtros-overlay.visible {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+/* Estados vacíos, formularios y acceso mantienen el mismo lenguaje público. */
+html body.tienda :is(.login-modal, .pedido-whatsapp-card) {
+  background: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid var(--tienda-linea);
+  border-radius: var(--tienda-radio);
+  box-shadow: 0 16px 48px rgba(39, 25, 32, .12);
+}
+html body.tienda .login-modal-titulo { color: var(--plum); font-weight: 600; font-size: 24px; }
+html body.tienda :is(.carrito-vacio-card, .direccion-form) {
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  border-color: var(--tienda-linea);
+}
+html body.tienda :is(.cuenta-campo label, .login-campo label) { font-weight: 500; }
+html body.tienda .btn-login-modal { background: var(--plum); color: #fff; font-weight: 500; box-shadow: none; border-radius: var(--tienda-radio); }
+html body.tienda .btn-login-modal:hover { background: #513542; }
+html body.tienda .btn-toggle-filtros:focus-visible { outline: 2px solid var(--rose-deep); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  html body.tienda.page-inicio :is(.filtros-panel, .filtros-overlay) { transition: none; }
+}

@@ -9,7 +9,6 @@ module.exports = defineConfig({
   publicDir: "../public",
   plugins: [tailwindcss()],
   server: {
-    allowedHosts: true,
     watch: {
       usePolling: true,
       interval: 1000,
@@ -22,14 +21,19 @@ module.exports = defineConfig({
       input: {
         index: resolve(__dirname, "src/index.html"),
         inicio: resolve(__dirname, "src/inicio.html"),
+        pedidos: resolve(__dirname, "src/pedidos.html"),
+        // Redirección de la dirección antigua de "Mis pedidos"
         categorias: resolve(__dirname, "src/categorias.html"),
-        pedidos: resolve(__dirname, "src/categorias.html"),
         producto: resolve(__dirname, "src/producto.html"),
         sobreMi: resolve(__dirname, "src/sobre-mi.html"),
         carrito: resolve(__dirname, "src/carrito.html"),
         admin: resolve(__dirname, "src/admin.html"),
-        loginAdmin: resolve(__dirname, "src/login-admin.html"),
-        seed: resolve(__dirname, "src/seed.html"),
+        terminos: resolve(__dirname, "src/terminos.html"),
+        privacidad: resolve(__dirname, "src/privacidad.html"),
+        cookies: resolve(__dirname, "src/cookies.html"),
+        envios: resolve(__dirname, "src/envios.html"),
+        contacto: resolve(__dirname, "src/contacto.html"),
+        cuenta: resolve(__dirname, "src/cuenta.html"),
       },
     },
   },

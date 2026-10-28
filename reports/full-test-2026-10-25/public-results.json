@@ -1,0 +1,202 @@
+[
+  {
+    "id": "U01",
+    "title": "First visit shows purchase note",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U02",
+    "title": "Close note leaves small post-it",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U03",
+    "title": "Post-it reopens readable content with pin",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U04",
+    "title": "Read note stays minimized after reload",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U05",
+    "title": "Catalog loads actual Firebase product, not skeleton",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U06",
+    "title": "Product image loads",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U07",
+    "title": "Search updates catalog and URL",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U08",
+    "title": "Unknown search has empty state and can recover",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U09",
+    "title": "Sorting survives reload through URL",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U10",
+    "title": "Product detail matches product and contains whole image",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U11",
+    "title": "Favorite toggle persists",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U12",
+    "title": "Add product to browser cart",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U13",
+    "title": "Cart shows current product and total",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U14",
+    "title": "Quantity controls respect lower bound",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U15",
+    "title": "Checkout summary and agreed payment methods",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U16",
+    "title": "Current local build is configured for automatic checkout (network blocked)",
+    "status": "FAIL",
+    "environment": "REAL_PUBLIC_UI",
+    "pending": "P01",
+    "detail": "Locator expected not to contain text 'aún no está configurado'\nActual value: El envío automático aún no está configurado para este sitio. Contacta a Mariru por WhatsApp. \nCall log:\n  - Expect \"not_to_contain_text\" locator(\"#pedidoWhatsAppAviso\") with timeout 5000ms\n  - waiting for locator(\"#pedidoWhatsAppAviso\")\n    14 × locator resolved to <p role=\"status\" id=\"pedidoWhatsAppAviso\" class=\"pedido-whatsapp-aviso\">El envío automático aún no está configurado para …</p>\n       - unexpected value \"El envío automático aún no está configurado para este sitio. Contacta a Mariru por WhatsApp.\"\n\nAria snapshot:\n- status: El envío automático aún no está configurado para este sitio. Contacta a Mariru por "
+  },
+  {
+    "id": "U17",
+    "title": "Remove last product returns to empty cart",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U18",
+    "title": "Corrupt cart can be reset without page crash",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U19",
+    "title": "Unknown product has safe unavailable state",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U20",
+    "title": "Public page: envios.html",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U21",
+    "title": "Public page: terminos.html",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U22",
+    "title": "Public page: privacidad.html",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U23",
+    "title": "Public page: cookies.html",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U24",
+    "title": "Public page: contacto.html",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U25",
+    "title": "Public page: sobre-mi.html",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U26",
+    "title": "Public page: cuenta.html",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U27",
+    "title": "Public page: categorias.html",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U28",
+    "title": "Admin rejects anonymous browser",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U29",
+    "title": "No horizontal overflow at 320px",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U30",
+    "title": "No horizontal overflow at 390px",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U32",
+    "title": "Mobile filters close with Escape and product remains clickable",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U31",
+    "title": "No horizontal overflow at 768px",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  },
+  {
+    "id": "U33",
+    "title": "No uncaught JavaScript errors in public journey",
+    "status": "PASS",
+    "environment": "REAL_PUBLIC_UI"
+  }
+]

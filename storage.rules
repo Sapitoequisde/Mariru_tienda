@@ -2,13 +2,18 @@ rules_version = '2';
 
 service firebase.storage {
   match /b/{bucket}/o {
+    function isAdmin() {
+      return request.auth != null
+        && firestore.get(/databases/(default)/documents/usuarios/$(request.auth.uid)).data.admin == true;
+    }
+
     match /productos/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null
-        && firestore.get(/databases/(default)/documents/usuarios/$(request.auth.uid)).data.admin == true
-        && request.resource != null
+      allow create, update: if isAdmin()
         && request.resource.size < 20 * 1024 * 1024
         && request.resource.contentType.matches('image/.*|video/.*');
+      // Permite al panel borrar las fotos y videos que se quitan al editar o eliminar un producto
+      allow delete: if isAdmin();
     }
   }
 }

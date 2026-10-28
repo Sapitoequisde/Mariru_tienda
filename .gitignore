@@ -7,3 +7,4 @@ dist/
 cloudflared.exe
 .DS_Store
 Thumbs.db
+debug.log

@@ -1,0 +1,126 @@
+[
+  {
+    "id": "M01",
+    "title": "Admin role accepted from mocked admin profile",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M02",
+    "title": "Inventory paginates at twelve rows",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M03",
+    "title": "Inventory search finds correct item",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M04",
+    "title": "Category filter and result count",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M05",
+    "title": "Low-stock filter excludes exhausted products",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M06",
+    "title": "Pagination last page and boundary controls",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M07",
+    "title": "Inventory stock ordering",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M08",
+    "title": "Open editor with existing fields and media",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M09",
+    "title": "Edit saves original document, retains media and creates no duplicate",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M10",
+    "title": "Failed save retains input and allows retry",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M11",
+    "title": "Retry successful save",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M12",
+    "title": "Stock-only change supports zero",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M13",
+    "title": "Editing description preserves a concurrent stock reservation",
+    "status": "FAIL",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE",
+    "pending": "P05",
+    "detail": "Editor overwrote a newer reservation with stale absolute stock"
+  },
+  {
+    "id": "M14",
+    "title": "Closing and reopening keeps unsaved draft",
+    "status": "FAIL",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE",
+    "pending": "P16",
+    "detail": "Locator expected to have Value 'Unsaved draft'\nActual value:  \nCall log:\n  - Expect \"to_have_value\" locator(\"#nuevoNombre\") with timeout 5000ms\n  - waiting for locator(\"#nuevoNombre\")\n    14 × locator resolved to <input type=\"text\" required=\"\" maxlength=\"150\" id=\"nuevoNombre\" placeholder=\"Ej. Blusa rosa de manga corta\"/>\n       - unexpected value \"\"\n\nAria snapshot:\n- textbox \"Nombre del producto\":\n  - /placeholder: Ej. Blusa rosa de manga corta"
+  },
+  {
+    "id": "M15",
+    "title": "Create new product without media",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M16",
+    "title": "Delete confirmation removes isolated test product",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M17",
+    "title": "Product names are inserted as text, not executable HTML",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M18",
+    "title": "Edit button has visible black label",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M19",
+    "title": "No uncaught errors in administrator interactions",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  },
+  {
+    "id": "M20",
+    "title": "Admin layout contains horizontal table scrolling on mobile",
+    "status": "PASS",
+    "environment": "ACTUAL_ADMIN_UI_MOCK_FIREBASE"
+  }
+]

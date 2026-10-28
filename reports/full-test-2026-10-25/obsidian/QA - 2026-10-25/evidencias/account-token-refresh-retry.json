@@ -1,0 +1,174 @@
+{
+  "tests": [
+    {
+      "id": "A01",
+      "title": "Create disposable Firebase customer without sending verification email",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A02",
+      "title": "Create own non-admin profile under deployed rules",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A03",
+      "title": "Customer login through actual form",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A04",
+      "title": "Authenticated account renders correct customer",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A05",
+      "title": "Update own profile name",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A06",
+      "title": "Invalid postal code does not create address",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A07",
+      "title": "Create first address as main",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A08",
+      "title": "Create second address",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A09",
+      "title": "Switch main address and keep one main",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A10",
+      "title": "Edit address without creating duplicate",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A11",
+      "title": "Deployed rules reject foreign profile/address/order reads",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A12",
+      "title": "Deployed address schema rejects unknown fields",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A13",
+      "title": "Weak password rejected locally",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A14",
+      "title": "Password confirmation mismatch rejected",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A15",
+      "title": "Wrong current password rejected by real Firebase reauthentication",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A16",
+      "title": "Change password with real reauthentication",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A17",
+      "title": "Delete own test address",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A18",
+      "title": "Logout actual Firebase session",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A19",
+      "title": "Login with updated password",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A20",
+      "title": "Profile and address persist across logout",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A25",
+      "title": "Real authenticated customer is denied administrator access",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    },
+    {
+      "id": "A26",
+      "title": "Server enforces the same twelve-character password policy as UI",
+      "status": "FAIL",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER",
+      "pending": "P17",
+      "detail": "Firebase accepted an eight-character password while the UI requires twelve; strong QA password restored"
+    },
+    {
+      "id": "A21",
+      "title": "Five-address maximum enforced beyond UI",
+      "status": "FAIL",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER",
+      "pending": "P15",
+      "detail": "Page.evaluate: FirebaseError: Firebase: Error (auth/user-token-expired).\n    at createErrorInternal (http://127.0.0.1:4179/@fs/C:/Users/uziel/OneDrive/Escritorio/Mariru_tienda/node_modules/.vite/deps/firebase_auth.js?v=291054f5:435:35)\n    at _fail (http://127.0.0.1:4179/@fs/C:/Users/uziel/OneDrive/Escritorio/Mariru_tienda/node_modules/.vite/deps/firebase_auth.js?v=291054f5:408:8)\n    at _performFetchWithErrorHandling (http://127.0.0.1:4179/@fs/C:/Users/uziel/OneDrive/Escritorio/Mariru_tienda/node_modules/.vite/deps/firebase_auth.js?v=291054f5:761:9)\n    at async requestStsToken (http://127.0."
+    },
+    {
+      "id": "A22",
+      "title": "Delete QA account and its own addresses through actual UI",
+      "status": "FAIL",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER",
+      "pending": null,
+      "detail": "Locator.wait_for: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"#cuentaContenido\") to be visible\n    43 × locator resolved to hidden <div hidden=\"\" id=\"cuentaContenido\" class=\"cuenta-contenido\">…</div>\n"
+    },
+    {
+      "id": "A23",
+      "title": "Deleted QA credentials no longer authenticate",
+      "status": "FAIL",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER",
+      "pending": null,
+      "detail": "Deleted QA account can still log in"
+    },
+    {
+      "id": "A24",
+      "title": "No uncaught runtime errors in account lifecycle",
+      "status": "PASS",
+      "environment": "LIVE_DISPOSABLE_CUSTOMER"
+    }
+  ],
+  "cleanup": {
+    "created": true,
+    "confirmed": true,
+    "method": "exact-UID-fallback",
+    "removedAddresses": 1
+  }
+}

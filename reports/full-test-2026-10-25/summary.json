@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-25",
+  "status": "NOT_READY_FOR_PRODUCTION",
+  "executed": 129,
+  "passed": 111,
+  "failed": 18,
+  "blockedNotExecuted": 12,
+  "suites": [
+    {
+      "name": "Backend aislado",
+      "total": 32,
+      "passed": 25,
+      "failed": 7,
+      "blocked": 0,
+      "file": "backend-results.json"
+    },
+    {
+      "name": "Navegación pública real",
+      "total": 33,
+      "passed": 32,
+      "failed": 1,
+      "blocked": 0,
+      "file": "public-results.json"
+    },
+    {
+      "name": "Cuenta temporal real",
+      "total": 26,
+      "passed": 24,
+      "failed": 2,
+      "blocked": 0,
+      "file": "account-results.json"
+    },
+    {
+      "name": "Panel con Firebase simulado",
+      "total": 20,
+      "passed": 18,
+      "failed": 2,
+      "blocked": 0,
+      "file": "admin-results.json"
+    },
+    {
+      "name": "Compilación, dependencias y entorno",
+      "total": 15,
+      "passed": 9,
+      "failed": 6,
+      "blocked": 0,
+      "file": "checks-results.json"
+    },
+    {
+      "name": "Procesamiento real de imágenes",
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "blocked": 0,
+      "file": "image-results.json"
+    }
+  ],
+  "cleanup": {
+    "created": true,
+    "confirmed": true,
+    "method": "UI"
+  }
+}

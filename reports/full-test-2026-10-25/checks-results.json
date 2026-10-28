@@ -1,0 +1,113 @@
+[
+  {
+    "id": "R01",
+    "title": "Production build",
+    "status": "PASS",
+    "environment": "LOCAL_STATIC",
+    "detail": "Production build completed"
+  },
+  {
+    "id": "R02",
+    "title": "Backend syntax",
+    "status": "PASS",
+    "environment": "LOCAL_STATIC",
+    "detail": null
+  },
+  {
+    "id": "R03",
+    "title": "Built HTML references and unique IDs",
+    "status": "PASS",
+    "environment": "LOCAL_STATIC",
+    "detail": "14 built HTML pages; local asset/link paths exist"
+  },
+  {
+    "id": "R04",
+    "title": "Root and functions dependency lock declarations match",
+    "status": "PASS",
+    "environment": "LOCAL_STATIC",
+    "detail": null
+  },
+  {
+    "id": "R05",
+    "title": "Seed utility excluded from production build",
+    "status": "PASS",
+    "environment": "LOCAL_STATIC",
+    "detail": null
+  },
+  {
+    "id": "R06",
+    "title": "Environment file ignored by Git",
+    "status": "PASS",
+    "environment": "LOCAL_STATIC",
+    "detail": null
+  },
+  {
+    "id": "R07",
+    "title": "App Check configured for local production build",
+    "status": "FAIL",
+    "environment": "LOCAL_CONFIG",
+    "pending": "P01",
+    "detail": "Public App Check site key is absent"
+  },
+  {
+    "id": "R08",
+    "title": "Live public product schema",
+    "status": "PASS",
+    "environment": "LIVE_READONLY",
+    "detail": "1 public product(s), compatible required fields"
+  },
+  {
+    "id": "R09",
+    "title": "Anonymous access denied: usuarios",
+    "status": "PASS",
+    "environment": "LIVE_READONLY",
+    "detail": null
+  },
+  {
+    "id": "R10",
+    "title": "Anonymous access denied: pedidos",
+    "status": "PASS",
+    "environment": "LIVE_READONLY",
+    "detail": null
+  },
+  {
+    "id": "R11",
+    "title": "Current callable route is present",
+    "status": "FAIL",
+    "environment": "LIVE_READONLY",
+    "pending": "P01",
+    "detail": "Current callable GET returned 404"
+  },
+  {
+    "id": "R12",
+    "title": "Unused legacy endpoint no longer exposed",
+    "status": "FAIL",
+    "environment": "LIVE_READONLY",
+    "pending": "P02",
+    "detail": "Legacy callable still responds"
+  },
+  {
+    "id": "R13",
+    "title": "Configured security headers active on checked Firebase hosting",
+    "status": "FAIL",
+    "environment": "LIVE_READONLY",
+    "pending": "P09",
+    "detail": "Missing headers: content-security-policy,x-content-type-options,x-frame-options,permissions-policy"
+  },
+  {
+    "id": "R14",
+    "title": "Dependency security audit: frontend",
+    "status": "FAIL",
+    "environment": "NPM_REGISTRY",
+    "pending": "P07",
+    "detail": "Unresolved high/critical advisories: {\"info\": 0, \"low\": 0, \"moderate\": 0, \"high\": 7, \"critical\": 0, \"total\": 7}"
+  },
+  {
+    "id": "R15",
+    "title": "Dependency security audit: backend",
+    "status": "FAIL",
+    "environment": "NPM_REGISTRY",
+    "pending": "P07",
+    "detail": "Unresolved high/critical advisories: {\"info\": 0, \"low\": 0, \"moderate\": 0, \"high\": 3, \"critical\": 0, \"total\": 3}"
+  }
+]

@@ -12,6 +12,7 @@ if (!reduceMotion) {
     };
     const follower = { ...target };
     let frameId;
+    let animando = false;
     let lastSpriteChange = 0;
     let spriteFrame = 0;
     const sprites = [
@@ -34,6 +35,8 @@ if (!reduceMotion) {
     }
 
     function render(now) {
+      if (!animando) return;
+
       const distanceX = target.x - follower.x;
       const distanceY = target.y - follower.y;
       const distance = Math.hypot(distanceX, distanceY);
@@ -55,6 +58,31 @@ if (!reduceMotion) {
       frameId = requestAnimationFrame(render);
     }
 
+    function iniciarAnimacion() {
+      if (animando) return;
+      animando = true;
+      frameId = requestAnimationFrame(render);
+    }
+
+    function detenerAnimacion() {
+      animando = false;
+      cancelAnimationFrame(frameId);
+      frameId = null;
+    }
+
+    function reiniciarEnCentro() {
+      target.x = window.innerWidth / 2;
+      target.y = window.innerHeight / 2;
+      follower.x = target.x;
+      follower.y = target.y;
+      yarn.style.transform = `translate3d(${target.x}px, ${target.y}px, 0) translate(-50%, -50%)`;
+      cat.style.transform = `translate3d(${follower.x}px, ${follower.y}px, 0) translate(-50%, -50%)`;
+      cat.classList.remove("running");
+      actualizarSprite(performance.now(), false);
+      yarn.classList.add("visible");
+      cat.classList.add("visible");
+    }
+
     function seguirCursor(event) {
       target.x = event.clientX;
       target.y = event.clientY;
@@ -72,7 +100,11 @@ if (!reduceMotion) {
 
     document.documentElement.addEventListener("mouseleave", ocultarJuego);
 
-    frameId = requestAnimationFrame(render);
-    window.addEventListener("pagehide", () => cancelAnimationFrame(frameId), { once: true });
+    iniciarAnimacion();
+    window.addEventListener("pagehide", detenerAnimacion);
+    window.addEventListener("pageshow", event => {
+      iniciarAnimacion();
+      if (event.persisted) reiniciarEnCentro();
+    });
   }
 }

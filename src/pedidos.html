@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mariru Bazar - Mis pedidos</title>
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/tienda.css">
+  <script>if(performance.getEntriesByType("navigation")[0]?.type==="reload"){document.documentElement.classList.add("show-reload-splash");setTimeout(()=>document.documentElement.classList.remove("show-reload-splash"),1600)}</script>
+</head>
+<body class="page-pedidos tienda">
+
+  <header class="barra" id="navbarGlobal"></header>
+
+  <a href="javascript:history.back()" class="btn-volver-seccion" aria-label="Regresar a la página anterior">↩ Volver</a>
+
+  <main class="pedidos-main">
+    <header class="pagina-encabezado">
+      <h1 class="pagina-titulo">Mis pedidos</h1>
+      <p class="pagina-lead">Consulta el resumen de las compras que has enviado a Mariru.</p>
+    </header>
+    <section id="pedidosEstado" class="pedidos-estado" aria-live="polite">
+      <p>Cargando tus pedidos...</p>
+    </section>
+    <section id="pedidosLista" class="pedidos-lista" aria-live="polite"></section>
+  </main>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script type="module" src="js/pages/orders.js"></script>
+  <script type="module" src="js/ui/sakura-petals.js"></script>
+</body>
+</html>
